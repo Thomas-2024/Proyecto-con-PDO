@@ -14,6 +14,15 @@
     <?php session_start(); ?>
     <div class="navegador_lateral">
             <button class="boton_dropdown" id="menu1">
+                <i class="fa-solid fa-user"></i>
+                <span>Cuenta</span>
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="contenido_dropdown" id="menu1">
+                    <a href="CerrarSesion.php">Cerrar sesion</a>
+                    <a href="#">Actualizar datos</a>
+            </div>
+            <button class="boton_dropdown" id="menu1">
                 <i class="far fa-calendar-alt"></i>
                 <span>Pedidos</span>
                 <i class="fa-solid fa-chevron-right"></i>
@@ -45,8 +54,10 @@
                     </button>
                     <div class="contenido_dropdown">
                         <form action="" method="post">
-                        <input type="submit" name="empleados" value="Empleados">
-                        <input type="submit" name="permisos" value="Tus_Permisos">
+                            <input type="submit" name="empleados" value="Gestionar Empleados">
+                            <input type="submit" id="Menu-CrearRol" style="display: none;" name="crea_rol" value="Crear rol">
+                            <input type="submit" id="Menu-Permisos-Roles" style="display: none;" name="modificar_permisos" value="Modificar permisos">
+                            <input type="submit" id="Menu-Administracion" style="display: none;" name="menu_administracion" value="Menu Administracion">    
                         </form>
                     </div>
                     <?php
@@ -79,13 +90,29 @@
             <?php
                 if(isset($_POST['empleados'])){
                     $_SESSION['mostrar'] = $_POST['empleados'];
-                }else if (isset($_POST['permisos'])){
-                    $_SESSION['mostrar'] = "nada";
+                }else if (isset($_POST['modificar_permisos'])){
+                    $_SESSION['mostrar'] = $_POST['modificar_permisos'];
+                }
+                else if (isset($_POST['crea_rol'])){
+                    $_SESSION['mostrar'] = $_POST['crea_rol'];
+                }
+                else if (isset($_POST['menu_administracion'])){
+                    $_SESSION['mostrar'] = $_POST['menu_administracion'];
                 }
                 if(isset($_SESSION["mostrar"])){
                     switch ($_SESSION['mostrar']) {
                         case 'Empleados':
                                 include "SeleccionarRegistros.php";
+                            break;
+
+                        case 'Modificar permisos':
+                                include "ModificarPermisos.php";
+                            break;
+                        case 'Crear rol':
+                                include "CrearRol.php";
+                            break;
+                        case 'Menu administracion':
+                                include "MenuAdministracion.php";
                             break;
                         default:
                                 echo "No hay nada a mostrar";
@@ -96,6 +123,7 @@
             </div>
         </div>
     </div>
+    <?php include 'permisos/ComprobarPermiso.php'; ?>
     <script src="../code/PaginaPrincipal.js"></script>
 </body>
 </html>

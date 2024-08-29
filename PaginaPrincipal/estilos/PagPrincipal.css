@@ -82,7 +82,7 @@ header{
 }
 .Bienvenido {
     color: #000;
-    background-image: url(Imagenes/fondodetitulobodega.jpg);
+    background-image: url(../../ImagenesImportantes/fondodetitulobodega.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: top;
