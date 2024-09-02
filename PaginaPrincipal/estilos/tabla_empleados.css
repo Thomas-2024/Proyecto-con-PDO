@@ -1,0 +1,130 @@
+@font-face {font-family: 'ADELIA';src: url('../../../ADELIA.otf');}
+
+h2{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: ADELIA;/*tipo grafia*/
+}
+.fi1{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.fi2{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: center;
+}
+/*mensaje de cuantos registros hay*/
+.fi3{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Cascadia Code; /*tipo grafia*/
+}
+/*botones colsultar and ver todos los registros*/
+.fi1  input[type="text"]{
+    text-align: center;
+    border: 2px solid black;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    color: #000000;
+    font-size: 16px;
+}
+.fi1 input[type="submit"]{
+    text-align: center;
+    border: none;
+    outline: none;
+    height: 25px;
+    width: 120px;
+    background: #a7e2a4; /*color del boton*/
+    color: #000000; /*color del boton de la letra*/
+    font-size: 18px;
+    border-radius: 10px;  
+}
+.fi2 button[type="button"]{
+    text-align: center;
+}
+#f1{
+    border: none;
+    outline: none;
+    height: 25px;
+    width: 210px;
+    background: #a7e2a4; /*color del boton*/
+    color: #000000; /*color del boton de la letra*/
+    font-size: 18px;
+    border-radius: 10px;  
+}
+
+/*botones cuando pasa el raton*/
+.fi1 input[type="submit"]:hover{
+    background-color: #0af5;
+    box-shadow: 0 0 15px #0057f7, inset 0 0 15px #0057f7;
+}
+#f1:hover{
+    background-color: #0af5;
+    box-shadow: 0 0 15px #0057f7, inset 0 0 15px #0057f7;
+}
+/*estilo de la linea de la tabla*/
+#registros{
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+/*color de colum*/
+.co{
+    background-color:  #0af5;;
+}
+/*color del fondo de la tabla*/
+.si{
+    background-color: #ffffff;
+}
+/*color del boton basico de eliminar y editar*/
+.boton_editar{
+    text-align: center;
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 70px;
+    background: #84f1ff; /*color del boton*/
+    color: #000000; /*color del boton de la letra*/
+    font-size: 18px;
+    border-radius: 10px;  
+    margin: auto;
+    
+}
+.boton_eliminar{
+    text-align: center;
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 70px;
+    background: #ff8484; /*color del boton*/
+    color: #000000; /*color del boton de la letra*/
+    font-size: 18px;
+    border-radius: 10px;  
+    margin: auto;
+}
+/*color de letra del boton eliminar y editar*/
+a{
+    color: #000000; /*color del boton de la letra*/
+    text-decoration: none;
+}
+.boton_editar:hover{
+    background-color: #0000ff;
+    box-shadow: 0 0 15px #517fd4;
+}
+.boton_eliminar:hover{
+    background-color: #ff0000;
+    box-shadow: 0 0 15px #fa6e6e;
+}

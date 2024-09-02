@@ -1,0 +1,73 @@
+body{
+    color: #fff;
+}
+@font-face {font-family: 'ADELIA';src: url('../../../ADELIA.otf');}
+
+h2{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: ADELIA;/*tipo grafia*/
+}
+.tabla_modificar{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    border: #000 solid;
+    width: fit-content;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+    border-width: 10px;
+    box-shadow: 0 0 30px #a7e2a4, inset 0 0 30px #a7e2a4
+}       
+.tabla_modificar input[type="text"]{
+    text-align: center;
+    border: 2px solid black;
+    background: transparent;
+    outline: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    color: #000000;
+    font-size: 18px;
+}
+/*BOTON SUBMIT*/
+.tabla_modificar input[type="submit"]{
+    text-align: center;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 120px;
+    background: #a7e2a4; /*color del boton*/
+    color: #000000; /*color del boton de la letra*/
+    font-size: 20px;
+    border-radius: 10px;  
+}
+/*BOTON SUBMIT AL PASAR EL RATON*/
+
+.tabla_modificar input[type="submit"]:hover{
+    background-color: #0af5;
+    box-shadow: 0 0 15px #0057f7, inset 0 0 15px #0057f7;
+}
+.tabla_modificar input[type="password"]{ 
+    text-align: center;
+    
+    height: 20px;
+    width: 120px;
+    
+    font-size: 25px;
+    border-radius: 10px;  
+}
+#Rol{
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px; 
+}
+#Ver {
+    display: none;
+}
