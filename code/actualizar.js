@@ -3,14 +3,17 @@ window.onload = function() {
 }
 
 function mostrarRol() {
-    const registro = document.getElementsByName("modificar")[0];
-    console.log(registro);
-    var select = registro[3];
-    console.log(select);
-    if(registro.getAttribute("name")=="Registrar"){
-        select = registro[2];
-        console.log(select);
+    var registro;
+    if(document.body.contains(document.getElementsByName("modificar")[0])){
+        registro = document.getElementsByName("modificar")[0];
+        console.log(registro);
+    } else if (document.body.contains(document.getElementsByName("Registrar")[0])){
+        registro = document.getElementsByName("Registrar")[0];
+        console.log(registro);
     }
+
+    var select = registro[2];
+    console.log(select);
 
     const codigo = document.getElementById("Codigo");
 

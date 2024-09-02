@@ -28,14 +28,8 @@ $tablaRegistros = "<script src='../code/eliminar.js'></script>
             <td>".$fila['Edad']."</td>
             <td>".$fila['Correo']."</td>
             <td>".$fila['Telefono']."</td>
-<<<<<<< HEAD
-
             <td><img src='".$fila['Imagen_perfil']."' width='100px'></td>
-            <td id='letra'><div class='boton_editar' onclick=\"document.getElementById(".'\''.'Editar'.$fila['id_empleado'].'\''.").submit()\"><p class='btn__update'>Editar</p><form style='display: none' action='' method='post' id='Editar".$fila['id_empleado']."'><input type='text' name='Editar' value='".$fila['id_empleado']."'></form></div></td>
-=======
-            <td><img src='".$fila['Imagen_perfil']."' width='100px'></td>
-            <td id='letra'><div class='boton_editar'><a  href='ActualizarRegistros.php?id_empleado=".$fila['id_empleado']."' class='btn__update'>Editar</a></div></td>
->>>>>>> acea37510004622bf2177bce07f0852722f6942e
+            <td id='letra'><div class='boton_editar' onclick=\"document.getElementById(".'\''.'Editar'.$fila['id_empleado'].'\''.").submit()\"><p class='btn__update' style='margin: 0px'>Editar</p><form style='display: none' action='' method='post' id='Editar".$fila['id_empleado']."'><input type='text' name='Editar' value='".$fila['id_empleado']."'></form></div></td>
             <td id='letra'><div class='boton_eliminar'><a onclick=\"confirmacionEliminar(event, ".'\''.$fila['id_empleado'].'\''.")\" href='' id='boton_eliminar' class='btn__delete'>Eliminar</a></div></td>
         </tr>";
     endforeach;

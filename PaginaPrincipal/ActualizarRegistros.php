@@ -13,13 +13,14 @@
     $lista_roles = showRols();
 
     foreach ($result2 as $fila):
-        echo $fila['rol_nombre'].$fila['id_rol'];
     ?>
     <br><br<br><br><br><br><br><br>
     
     <div class="tabla_modificar">
     <br><h2>Editar Informacion </h2>
         <form method="post" action='' enctype="multipart/form-data" name='modificar' class="formulario">
+            Identificacion: <input type='text' name='Id' value='<?php echo $fila['id_empleado']?>'><br>
+            Nombre: <input type='text' name='Nombre' value='<?php echo $fila['Nombre']?>'><br>
             Rol: <select name='Rol' id="Rol" class='<?php echo $fila['id_rol']?>'><?php printf($lista_roles) ?></select><br>
             Edad: <input type='text' name='Edad' value='<?php echo $fila['Edad']?>'><br>
             Correo: <input type='text' name='Correo' value='<?php echo $fila['Correo']?>'><br>
@@ -38,8 +39,9 @@
     endforeach;
     if (isset($_POST['modificar'])){
         include "../Uso_multiple/CapturarDatos.php";
-        $sentencia_update =$Mienlace->prepare('UPDATE empleados SET id_rol=:id_rol, Nombre=:Nombre, Edad=:Edad, Correo=:Correo, Contrasena=:Contrasena, Telefono=:Telefono, Imagen_perfil=:Img_perfil WHERE id_empleado=:Id');
+        $sentencia_update =$Mienlace->prepare('UPDATE empleados SET id_empleado=:id_empleado, id_rol=:id_rol, Nombre=:Nombre, Edad=:Edad, Correo=:Correo, Contrasena=:Contrasena, Telefono=:Telefono, Imagen_perfil=:Img_perfil WHERE id_empleado=:Id');
         $sentencia_update->execute(array(
+            ':id_empleado'=>$Id,
             ':id_rol'=>$Rol,
             ':Nombre'=>$Nombre,
             ':Edad'=>$Edad,
@@ -47,7 +49,7 @@
             ':Contrasena'=>$Contraseña,
             ':Telefono'=>$Telefono,
             ':Img_perfil'=>$dir_img_perfil,
-            ':Id'=>$_POST['Id']
+            ':Id'=>$id_modificar
         ));
         $_SESSION['mostrar'] = 'Gestionar Empleados';
         echo "<script>
