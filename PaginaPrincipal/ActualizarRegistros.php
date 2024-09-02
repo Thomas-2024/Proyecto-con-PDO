@@ -20,9 +20,6 @@
     <div class="tabla_modificar">
     <br><h2>Editar Informacion </h2>
         <form method="post" action='' enctype="multipart/form-data" name='modificar' class="formulario">
-            Identificacion: <input type="text" name='Id' id="Id" value='<?php echo $fila['id_empleado']?>'><br>
-            Nombre: <input type='text' name='Nombre' value='<?php echo $fila['Nombre']?>'><br>
-            <input type='text' name='oldRol' value='<?php echo $fila['rol_nombre']?>' disabled style='display: none'>
             Rol: <select name='Rol' id="Rol" class='<?php echo $fila['id_rol']?>'><?php printf($lista_roles) ?></select><br>
             Edad: <input type='text' name='Edad' value='<?php echo $fila['Edad']?>'><br>
             Correo: <input type='text' name='Correo' value='<?php echo $fila['Correo']?>'><br>
