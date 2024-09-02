@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 02-09-2024 a las 01:53:23
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-09-2024 a las 05:33:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -69,34 +69,35 @@ CREATE TABLE `detalle_pedido` (
 
 CREATE TABLE `empleados` (
   `id_empleado` varchar(12) NOT NULL,
+  `id_rol` int(11) DEFAULT NULL,
   `Nombre` varchar(20) DEFAULT NULL,
   `Edad` varchar(3) DEFAULT NULL,
   `Correo` varchar(50) DEFAULT NULL,
   `Contrasena` varchar(15) DEFAULT NULL,
   `Telefono` varchar(50) DEFAULT NULL,
-  `Imagen_perfil` text DEFAULT NULL,
-  `id_rol` int(11) DEFAULT NULL
+  `Imagen_perfil` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `empleados`
 --
 
-INSERT INTO `empleados` (`id_empleado`, `Nombre`, `Edad`, `Correo`, `Contrasena`, `Telefono`, `Imagen_perfil`, `id_rol`) VALUES
-('09', 'Thomas David Olaya R', '49', 'tomasworked@gmail.com', 'tomas24*', '', '', 1),
-('1028485276', 'Thomas David', '59', 't@gmail.com', 'hola2024', '', '', 1),
-('12320993', 'david', '57', 'sadppf@gmail.com', 'laca', '3157622354', '', 1),
-('34', 'Thomas', '34', 'tomw@gmail.com', 'FirstService', '', '../../Images/20240619_115240-removebg-preview.png', 1),
-('4576', 'Karen', '45', 'karenlore@gmail.com', 'FirstService4', 'NULL', '../../Images/20240619_103430-removebg-preview.png', 1),
-('45999', 'Karen', '', 'karenwoee@gmail.com', 'FirstService', '', '', 1),
-('459999', 'Thomas', '9', 'tomwork9@gmail.com', 'FirstService', '', '../../Images/20240619_112718-removebg-preview.png', 1),
-('59', 'Thomas', '56', 'tomworked@gmail.com', 'FirstService', '', '', 1),
-('78', 'Karen Rodrigues', '17', 'karenwork@gmail.com', 'KarenSena24', '', '', 1),
-('80', 'Daniel Cumacoss', '20', 'danielworked@gmail.com', 'KarenSena24', '', 'Images/1642627739detallecumpleaños.jpg', 3),
-('81', 'Daniel Cumacos', '26', 'danielwor@gmail.com', 'daniel2024', '', '../../Images/1605689482cumple21.jpg', 1),
-('82', 'Danna', '32', 'dannaworked@gmail.com', 'FirstService', '', '', 5),
-('84', 'Danna More', '179', 'dannawor@gmail.com', 'FirstService', '', '../Images/1651784949mamaestupenda.jpg', 1),
-('91', 'Danna Morelo', '37', 'dannawo@gmail.com', 'FirstService', '', '', 4);
+INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `Contrasena`, `Telefono`, `Imagen_perfil`) VALUES
+('09', 1, 'Thomas David Olaya R', '49', 'tomasworked@gmail.com', 'tomas24*', '', ''),
+('1028485276', 1, 'Thomas David', '59', 't@gmail.com', 'hola2024', '', ''),
+('12320993', 1, 'david', '57', 'sadppf@gmail.com', 'laca', '3157622354', ''),
+('34', 1, 'Thomas', '34', 'tomw@gmail.com', 'FirstService', '', '../../Images/20240619_115240-removebg-preview.png'),
+('456868689', 1, 'Juan Pablo', '56', 'janpol@gmail.com', 'FirstService', '', '../Images/FotoAguacateSinFonod.png'),
+('4576', 1, 'Karen', '45', 'karenlore@gmail.com', 'FirstService4', 'NULL', '../../Images/20240619_103430-removebg-preview.png'),
+('45999', 1, 'Karen', '', 'karenwoee@gmail.com', 'FirstService', '', ''),
+('459999', 1, 'Thomas', '9', 'tomwork9@gmail.com', 'FirstService', '', '../../Images/20240619_112718-removebg-preview.png'),
+('59', 1, 'Thomas', '56', 'tomworked@gmail.com', 'FirstService', '', ''),
+('78', 1, 'Karen Rodrigues', '17', 'karenwork@gmail.com', 'KarenSena24', '', ''),
+('80', 4, 'Daniel Cumacoss', '20', 'danielworked@gmail.com', 'KarenSena24', '', 'Images/1642627739detallecumpleaños.jpg'),
+('81', 1, 'Daniel Cumacos', '26', 'danielwor@gmail.com', 'daniel2024', '', '../../Images/1605689482cumple21.jpg'),
+('82', 5, 'Danna', '32', 'dannaworked@gmail.com', 'FirstService', '', ''),
+('84', 1, 'Danna More', '179', 'dannawor@gmail.com', 'FirstService', '', '../Images/1651784949mamaestupenda.jpg'),
+('91', 4, 'Danna Morelo', '37', 'dannawo@gmail.com', 'FirstService', '', '');
 
 -- --------------------------------------------------------
 
@@ -287,7 +288,7 @@ INSERT INTO `rol` (`rol_nombre`, `Crear_Roles`, `Modificar_permisos`, `Menu_admi
 ('Empleado', 'NO', 'NO', 'NO', 2),
 ('Coordinador', 'NO', 'NO', 'NO', 3),
 ('Jefe de almacen', 'NO', 'NO', 'NO', 4),
-('Personal de binestar', 'SI', 'NO', 'NO', 5),
+('Personal de binestar', 'NO', 'NO', 'SI', 5),
 ('Ejecutivo', 'NO', 'NO', 'NO', 6);
 
 -- --------------------------------------------------------
