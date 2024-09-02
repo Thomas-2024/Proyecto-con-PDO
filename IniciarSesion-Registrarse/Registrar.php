@@ -59,7 +59,7 @@
         exit();
     }
 
-    if (isset($_POST['Codigo']) && $Rol == "1000") {
+    if (isset($_POST['Codigo']) && $Rol == "1") {
         $codigo = $_POST['Codigo'];
         if($codigo != "20756"){
             $_SESSION['mensaje'] = '9';

@@ -11,7 +11,7 @@
     function mostrarValidarRolAdmin(){
         const select = document.getElementById("Rol");
         const codigo = document.getElementById("Codigo");
-        if (select.value == "1000") {
+        if (select.value == "1") {
             codigo.type = 'password';
             codigo.disabled = false;
         } else {
@@ -39,7 +39,7 @@
                     printf($lista_roles);
                 ?>
             </select><br><br>
-    <input type="" name="Codigo" id="Codigo" placeholder="Codigo Administrador: "><br><br>
+    <input type="hidden" name="Codigo" id="Codigo" placeholder="Codigo Administrador: "><br><br>
     Edad: <br><input type="text" name="Edad" value="<?php if(isset($_SESSION['edad'])){echo $_SESSION['edad'];    unset($_SESSION['edad']);}?>" size="20" maxlength="30"><br><br>
     Correo: *<br><input type="text" name="Correo" value="<?php if(isset($_SESSION['correo'])){echo $_SESSION['correo'];    unset($_SESSION['correo']);}?>" size="20" maxlength="30"><br><br>
     <a onclick="ocultarContra()" id="Ver"><i class="fas fa-eye"></i></a>
