@@ -1,0 +1,18 @@
+* {
+    text-align: center;
+}
+
+
+form{
+    width: max-content;
+    margin: auto;
+    margin-top: 5cm;
+    margin-bottom: 5cm;
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 75px;
+    padding-top: 55px;
+    background-color: aquamarine;
+}
