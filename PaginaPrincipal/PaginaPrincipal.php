@@ -127,12 +127,9 @@
                     $_SESSION['mostrar'] = 'Gestionar Productos';
                     if (isset($_POST['Editar'])){
                         $IDD = $_POST['Editar'];
-                    }                }
                 if(isset($_SESSION["mostrar"])){
                     switch ($_SESSION['mostrar']) {
                         case 'Gestionar Empleados':
-                                include "SeleccionarRegistros.php";
-                            break;
 
                         case 'Modificar_Permisos':
                                 include "Secciones-con-permisos/PermisosForm.php";
@@ -148,15 +145,9 @@
                             break;
                         case 'Gestionar Productos':
                                 include "GestionarProductos.php";
-                            break;
                         default:
-                                echo "No hay nada a mostrar";
-                            break;
-                    }
-                }
+                }}}}
             ?>
-            </div>
-        </div>
     </div>
     <script src="../code/PaginaPrincipal.js"></script>
 </body>

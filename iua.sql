@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 03-09-2024 a las 05:31:16
+=======
+-- Tiempo de generación: 02-09-2024 a las 05:33:34
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,6 +32,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
+<<<<<<< HEAD
   `id_categoria` int(11) NOT NULL,
   `categoria` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -48,6 +53,12 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`) VALUES
 (9, 'snaks'),
 (10, 'utiles_escolares');
 
+=======
+  `id_categoria` tinyint(4) NOT NULL,
+  `Nombre` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- --------------------------------------------------------
 
 --
@@ -109,9 +120,15 @@ INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `C
 ('459999', 1, 'Thomas', '9', 'tomwork9@gmail.com', 'FirstService', '', '../../Images/20240619_112718-removebg-preview.png'),
 ('59', 1, 'Thomas', '56', 'tomworked@gmail.com', 'FirstService', '', ''),
 ('78', 1, 'Karen Rodrigues', '17', 'karenwork@gmail.com', 'KarenSena24', '', ''),
+<<<<<<< HEAD
 ('80', 2, 'Daniel Cumacoss', '20', 'danielworked@gmail.com', 'KarenSena24', '', 'Images/1642627739detallecumpleaños.jpg'),
 ('81', 1, 'Daniel Cumacos', '26', 'danielwor@gmail.com', 'daniel2024', '', '../../Images/1605689482cumple21.jpg'),
 ('8289474', 2, 'Danna', '32', 'dannaworked@gmail.com', 'FirstService', '', '../Images/20240619_103430-removebg-preview.png'),
+=======
+('80', 4, 'Daniel Cumacoss', '20', 'danielworked@gmail.com', 'KarenSena24', '', 'Images/1642627739detallecumpleaños.jpg'),
+('81', 1, 'Daniel Cumacos', '26', 'danielwor@gmail.com', 'daniel2024', '', '../../Images/1605689482cumple21.jpg'),
+('82', 5, 'Danna', '32', 'dannaworked@gmail.com', 'FirstService', '', ''),
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 ('84', 1, 'Danna More', '179', 'dannawor@gmail.com', 'FirstService', '', '../Images/1651784949mamaestupenda.jpg'),
 ('91', 4, 'Danna Morelo', '37', 'dannawo@gmail.com', 'FirstService', '', '');
 
@@ -133,6 +150,7 @@ CREATE TABLE `empresa` (
 --
 
 CREATE TABLE `estado` (
+<<<<<<< HEAD
   `id_estado` int(11) NOT NULL,
   `Estado` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -146,6 +164,12 @@ INSERT INTO `estado` (`id_estado`, `Estado`) VALUES
 (2, 'En Revision'),
 (3, 'Expirado');
 
+=======
+  `id_estado` smallint(6) NOT NULL,
+  `Estado` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- --------------------------------------------------------
 
 --
@@ -153,6 +177,7 @@ INSERT INTO `estado` (`id_estado`, `Estado`) VALUES
 --
 
 CREATE TABLE `inventario` (
+<<<<<<< HEAD
   `id_producto` varchar(25) NOT NULL,
   `Nombre` varchar(25) DEFAULT NULL,
   `Imagen` varchar(255) DEFAULT NULL,
@@ -188,6 +213,17 @@ INSERT INTO `inventario` (`id_producto`, `Nombre`, `Imagen`, `Precio`, `Stock`, 
 ('P019', 'Cuadernos', 'cuadernos.jpg', 3, 500, 1, 10),
 ('P020', 'L?pices', 'lapices.jpg', 1, 1000, 1, 10);
 
+=======
+  `registro` smallint(6) NOT NULL,
+  `id_producto` varchar(25) DEFAULT NULL,
+  `Entradas` smallint(6) NOT NULL,
+  `salidas` smallint(6) NOT NULL,
+  `stock` smallint(6) NOT NULL,
+  `Precio_venta` int(11) NOT NULL,
+  `Precio_Compra` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- --------------------------------------------------------
 
 --
@@ -296,6 +332,21 @@ CREATE TABLE `personal` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
+=======
+-- Estructura de tabla para la tabla `productos`
+--
+
+CREATE TABLE `productos` (
+  `id_producto` varchar(25) NOT NULL,
+  `Nombre` varchar(25) DEFAULT NULL,
+  `id_estado` smallint(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- Estructura de tabla para la tabla `proveedor_empresa`
 --
 
@@ -350,6 +401,7 @@ CREATE TABLE `ubicacion` (
 --
 
 CREATE TABLE `unidades_de_medida` (
+<<<<<<< HEAD
   `id_unidad_medida` int(11) NOT NULL,
   `unidad_medida` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -364,6 +416,12 @@ INSERT INTO `unidades_de_medida` (`id_unidad_medida`, `unidad_medida`) VALUES
 (3, NULL),
 (4, NULL);
 
+=======
+  `id_unidad_medida` tinyint(4) NOT NULL,
+  `Nombre` varchar(17) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- --------------------------------------------------------
 
 --
@@ -423,14 +481,25 @@ ALTER TABLE `estado`
 -- Indices de la tabla `inventario`
 --
 ALTER TABLE `inventario`
+<<<<<<< HEAD
   ADD KEY `id_unidad_de_medida` (`id_unidad_de_medida`),
   ADD KEY `id_categoria` (`id_categoria`);
+=======
+  ADD PRIMARY KEY (`registro`),
+  ADD UNIQUE KEY `id_producto` (`id_producto`),
+  ADD KEY `fk_id_producto1` (`id_producto`);
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 
 --
 -- Indices de la tabla `lote`
 --
 ALTER TABLE `lote`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_lote`);
+=======
+  ADD PRIMARY KEY (`id_lote`),
+  ADD KEY `id_producto` (`id_producto`);
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 
 --
 -- Indices de la tabla `lote_categoria`
@@ -450,7 +519,12 @@ ALTER TABLE `lote_estado`
 -- Indices de la tabla `lote_productos`
 --
 ALTER TABLE `lote_productos`
+<<<<<<< HEAD
   ADD KEY `fk_id_lote4` (`id_lote`);
+=======
+  ADD KEY `fk_id_lote4` (`id_lote`),
+  ADD KEY `fk_id_producto2` (`id_producto`);
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 
 --
 -- Indices de la tabla `lote_proveedor`
@@ -485,6 +559,16 @@ ALTER TABLE `personal`
   ADD PRIMARY KEY (`id_empleado`);
 
 --
+<<<<<<< HEAD
+=======
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `fk_estado` (`id_estado`);
+
+--
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- Indices de la tabla `proveedor_empresa`
 --
 ALTER TABLE `proveedor_empresa`
@@ -521,24 +605,30 @@ ALTER TABLE `ventas_hoy`
 --
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+=======
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
   MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT de la tabla `unidades_de_medida`
 --
 ALTER TABLE `unidades_de_medida`
   MODIFY `id_unidad_medida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+=======
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- Restricciones para tablas volcadas
 --
 
@@ -558,26 +648,50 @@ ALTER TABLE `empleados`
 -- Filtros para la tabla `inventario`
 --
 ALTER TABLE `inventario`
+<<<<<<< HEAD
   ADD CONSTRAINT `inventario_ibfk_2` FOREIGN KEY (`id_unidad_de_medida`) REFERENCES `unidades_de_medida` (`id_unidad_medida`),
   ADD CONSTRAINT `inventario_ibfk_3` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+=======
+  ADD CONSTRAINT `fk_id_producto1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  ADD CONSTRAINT `inventario_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+
+--
+-- Filtros para la tabla `lote`
+--
+ALTER TABLE `lote`
+  ADD CONSTRAINT `lote_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 
 --
 -- Filtros para la tabla `lote_categoria`
 --
 ALTER TABLE `lote_categoria`
+<<<<<<< HEAD
+=======
+  ADD CONSTRAINT `fk_id_categoria1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`),
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
   ADD CONSTRAINT `fk_id_lote2` FOREIGN KEY (`id_lote`) REFERENCES `lote` (`id_lote`);
 
 --
 -- Filtros para la tabla `lote_estado`
 --
 ALTER TABLE `lote_estado`
+<<<<<<< HEAD
+=======
+  ADD CONSTRAINT `fk_id_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`),
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
   ADD CONSTRAINT `fk_id_lote3` FOREIGN KEY (`id_lote`) REFERENCES `lote` (`id_lote`);
 
 --
 -- Filtros para la tabla `lote_productos`
 --
 ALTER TABLE `lote_productos`
+<<<<<<< HEAD
   ADD CONSTRAINT `fk_id_lote4` FOREIGN KEY (`id_lote`) REFERENCES `lote` (`id_lote`);
+=======
+  ADD CONSTRAINT `fk_id_lote4` FOREIGN KEY (`id_lote`) REFERENCES `lote` (`id_lote`),
+  ADD CONSTRAINT `fk_id_producto2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 
 --
 -- Filtros para la tabla `lote_proveedor`
@@ -600,6 +714,15 @@ ALTER TABLE `lote_unidad_medida`
   ADD CONSTRAINT `fk_id_lote7` FOREIGN KEY (`id_lote`) REFERENCES `lote` (`id_lote`);
 
 --
+<<<<<<< HEAD
+=======
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `fk_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`);
+
+--
+>>>>>>> 079b0b7738855d580b918e9ebb9b17dbcb9149cc
 -- Filtros para la tabla `proveedor_empresa`
 --
 ALTER TABLE `proveedor_empresa`
