@@ -11,7 +11,6 @@
     } else {
         $Mensaje = '0';  //Si no hay mensaje seteado en sesion, seteo el mensaje a 0
     }
-echo "hola";
     if (isset($_SESSION['CorreoError'])){ //Verifica si captura el valor de un correo no registrado
         $CorreoError = $_SESSION['CorreoError'];
         unset($_SESSION['CorreoError']);

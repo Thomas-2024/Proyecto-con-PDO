@@ -1,6 +1,5 @@
 * {
-    text-align: center;
-    font-family: Forte;/*tipo grafia*/
+    text-align: center;/*tipo grafia*/
 }
 body{
     margin: 0;
@@ -8,6 +7,17 @@ body{
     line-height: 1.6;
     
 }
+
+header{
+    display: flex;
+    height: 70px;
+    background-color: #ffff9f;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+
 body{
     background-image: url(../../ImagenesImportantes/fondodetitulobodega.jpg);
     background-size: cover;
@@ -17,22 +27,18 @@ body{
     margin: 0;
     padding: 0;
     justify-content: center;
-    font-family: Forte;/*tipo grafia*/
-    font-size: 20px;/*tamaño letra*/
     line-height: 25px;/*tamaño del espacio*/
 }
-/*ESTILO basico de boton */
-.index input[type="submit"]{
-    border: none;
-    outline: none;
-    height: 30px;
-    width: 140px;
-    background: #2d8eb4; /*color del boton*/
-    color: #000000; /*color del boton de la letra*/
-    font-size: 20px;
+/*Estilo de cuando un boton de inicio de sesion o registro esta seleccionado*/
+.seleccionado {
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(182, 231, 145);
     border-radius: 20px;
-    
 }
+
 /*ESTILO DE FORMULARIO*/
 form{
     width: max-content;
@@ -47,7 +53,21 @@ form{
     padding-top: 45px;
     background: #ffffff;
     box-shadow: 0 0 15px rgba(240, 203, 39, 0.527), inset 0 0 15px rgba(240, 203, 39, 0.527);
+    font-family: Forte;
     
+}
+
+/*ESTILO basico de boton */
+.index input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 140px;
+    background: #2d8eb4; /*color del boton*/
+    color: #000000; /*color del boton de la letra*/
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: Forte;
 }
 /* PARA EL COLOR DEL :placeholder*/
 input::placeholder{
@@ -75,9 +95,41 @@ input::placeholder{
 .index input[type="submit"]:hover{
     background-color: #7cbfd3;
     box-shadow: 0 0 15px #ffffff, inset 0 0 15px #ffffff;
-
+    font-family: Forte;
 }
 
 #Ver {
     display: none;
+}
+
+.encabezado {
+    background-color: rgba(240, 203, 39, 0.527);
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.botonEncabezado {
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 5;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.borde_animado {
+    width: 0%;
+    height: 3px;
+}
+
+.boton {
+    text-decoration: none;
+    color: #07F;
+}
+
+.boton:hover + .borde_animado {
+    width: 100%;
+    height: 3px;
+    transition: width 0.5s;
+    background: linear-gradient(To right, #00f, #09f);
 }

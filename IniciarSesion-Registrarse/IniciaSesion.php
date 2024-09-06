@@ -10,6 +10,21 @@
     <script src="ocultar-mostrarContra.php"></script>
 </head>
 <body>
+    <header>
+        <div class="logo_contenedor">
+        <a href="../Index.html"><img src="../ImagenesImportantes/Logo de la empresa.png" alt="Logo de la compañia" class="logo"></a>
+        </div>
+        <div class="encabezado">
+            <div class="seleccionado">
+                <a class="boton" href="" id="login">Iniciar sesion</a>
+                <div class="borde_animado"></div>
+            </div>
+            <div class="botonEncabezado">
+                <a class="boton" href="Registrarse.php" >Registrarse</a>
+                <div class="borde_animado"></div>
+            </div>
+        </div>
+    </header>  
     <div class="index"  id="Iniciar-sesion">
     <form action="validarSesion.php" method="post">
         <h2>Iniciar sesión</h2>

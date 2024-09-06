@@ -25,6 +25,21 @@
 <body>
 <script src="../code/actualizar.js"></script>
 <?php include "Mensajes.php";?>
+<header>
+        <div class="logo_contenedor">
+            <a href="../Index.html"><img src="../ImagenesImportantes/Logo de la empresa.png" alt="Logo de la compañia" class="logo"></a>
+        </div>
+        <div class="encabezado">
+            <div class="botonEncabezado">
+                <a class="boton" href="IniciaSesion.php" id="login">Iniciar sesion</a>
+                <div class="borde_animado"></div>
+            </div>
+            <div class="seleccionado">
+                <a class="boton" href="" >Registrarse</a>
+                <div class="borde_animado"></div>
+            </div>
+        </div>
+    </header>  
 <div class="index"  id="Iniciar-sesion">
 <form name="Registrar" id="Registrar" action="Registrar.php" method="post" enctype="multipart/form-data">
     <h1>Reporte de Empleados</h1>

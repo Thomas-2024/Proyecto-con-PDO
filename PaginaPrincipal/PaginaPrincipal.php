@@ -61,9 +61,9 @@
 
             <div class="contenido_dropdown">
                 <form action="" method="post">
-                    <input type="submit" name="productos" value="Gestionar Productos">
+                    <input type="submit" name="gestionar_productos" value="Gestionar Productos">
+                    <input type="submit" name="registrar_lotes" value="Registrar Entradas">
                 </form>
-                <a href="#">Tabla</a>
             </div>
             <?php
                 if(isset($_SESSION['visualizarPersonal'])){
@@ -123,11 +123,14 @@
                     $_SESSION['mostrar'] = 'Editar';
                     $IDD = $_POST['Editar'];
                 }
-                else if (isset($_POST['productos'])){
+                else if (isset($_POST['gestionar_productos'])){
                     $_SESSION['mostrar'] = 'Gestionar Productos';
                     if (isset($_POST['Editar'])){
                         $IDD = $_POST['Editar'];
                     }
+                }
+                else if (isset($_POST['registrar_lotes'])){
+                    $_SESSION['mostrar'] = 'Registrar Entradas';
                 }
                 if(isset($_SESSION["mostrar"])){
                     switch ($_SESSION['mostrar']) {
@@ -148,6 +151,10 @@
                             break;
                         case 'Gestionar Productos':
                                 include "GestionarProductos.php";
+                            break;
+                        case 'Registrar Entradas':
+                                include "RegistrarEntradas.php";
+                            break;
                         default:
                 }}
             ?>

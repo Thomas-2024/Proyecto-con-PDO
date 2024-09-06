@@ -1,7 +1,6 @@
 
 <link rel="stylesheet" type="text/css" href="estilos/edita.css">
 <?php
-    session_start();
     include_once "../Uso_multiple/Conexion.php";
     $Mienlace=MiConexion();
     $_SESSION['editado']=$_POST['Editar'];
@@ -14,7 +13,6 @@
 
     foreach ($result2 as $fila):
     ?>
-    <br><br<br><br><br><br><br><br>
     
     <div class="tabla_modificar">
     <br><h2>Editar Informacion </h2>
