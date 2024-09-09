@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 06-09-2024 a las 22:33:58
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 09-09-2024 a las 21:44:00
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -167,16 +167,16 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_producto`, `Nombre`, `Imagen`, `Precio`, `Stock`, `id_unidad_de_medida`, `id_categoria`) VALUES
-(1, 'Arroz Basmati 1kg', 'imagenes/arroz_basmati_1kg.jpg', 2500, 150, 1, 1),
-(2, 'Detergente Líquido 1L', 'imagenes/detergente_liquido_1L.jpg', 1800, 80, 1, 2),
-(3, 'Cuchara de Cocina de Acer', 'imagenes/cuchara_cocina_acero.jpg', 600, 120, 2, 3),
-(4, 'Auriculares Bluetooth Ina', 'imagenes/auriculares_bluetooth.jpg', 5500, 25, 1, 4),
-(5, 'Jamón Curado 250g', 'imagenes/jamon_curado_250g.jpg', 3000, 50, 1, 5),
-(6, 'Guantes de Protección Nit', 'imagenes/guantes_proteccion_nitrilo.jpg', 1200, 100, 1, 6),
-(7, 'Cuaderno Rayado 100 Hojas', 'imagenes/cuaderno_rayado_100_hojas.jpg', 400, 200, 1, 7),
-(8, 'Silla Ergonomica de Ofici', 'imagenes/silla_ergonomica.jpg', 15000, 15, 1, 8),
-(9, 'Vitamina C 1000mg 60 Tabl', 'imagenes/vitamina_c_1000mg.jpg', 1500, 70, 1, 9),
-(10, 'Pañales Talla M 30 Unidad', 'imagenes/panales_talla_m.jpg', 1000, 90, 1, 10);
+(1, 'Arroz Basmati 1kg', 'imagenes/arroz_basmati_1kg.jpg', 2500, 150, 4, 1),
+(2, 'Detergente Líquido 1L', 'imagenes/detergente_liquido_1L.jpg', 1800, 80, 2, 2),
+(3, 'Cuchara de Cocina de Acer', 'imagenes/cuchara_cocina_acero.jpg', 600, 120, 3, 3),
+(4, 'Auriculares Bluetooth Ina', 'imagenes/auriculares_bluetooth.jpg', 5500, 25, 3, 4),
+(5, 'Jamón Curado 250g', 'imagenes/jamon_curado_250g.jpg', 3000, 50, 5, 5),
+(6, 'Guantes de Protección Nit', 'imagenes/guantes_proteccion_nitrilo.jpg', 1200, 100, 3, 6),
+(7, 'Cuaderno Rayado 100 Hojas', 'imagenes/cuaderno_rayado_100_hojas.jpg', 400, 200, 3, 7),
+(8, 'Silla Ergonomica de Ofici', 'imagenes/silla_ergonomica.jpg', 15000, 15, 3, 8),
+(9, 'Vitamina C 1000mg 60 Tabl', 'imagenes/vitamina_c_1000mg.jpg', 1500, 70, 3, 9),
+(10, 'Pañales Talla M 30 Unidad', 'imagenes/panales_talla_m.jpg', 1000, 90, 3, 10);
 
 -- --------------------------------------------------------
 
@@ -286,7 +286,8 @@ INSERT INTO `unidades_de_medida` (`id_unidad_medida`, `unidad_medida`) VALUES
 (1, 'metros'),
 (2, 'litros'),
 (3, 'unidades'),
-(4, 'kilogramos');
+(4, 'kilogramos'),
+(5, 'gramos');
 
 -- --------------------------------------------------------
 
@@ -340,6 +341,7 @@ ALTER TABLE `estado`
 -- Indices de la tabla `inventario`
 --
 ALTER TABLE `inventario`
+  ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_unidad_de_medida` (`id_unidad_de_medida`),
   ADD KEY `id_categoria` (`id_categoria`);
 
@@ -411,7 +413,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `unidades_de_medida`
 --
 ALTER TABLE `unidades_de_medida`
-  MODIFY `id_unidad_medida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_unidad_medida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
