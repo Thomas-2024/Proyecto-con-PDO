@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3307
--- Tiempo de generación: 09-09-2024 a las 21:44:00
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-09-2024 a las 03:54:37
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -118,13 +118,29 @@ INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `C
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empresa`
+-- Estructura de tabla para la tabla `empresa_proveedora`
 --
 
-CREATE TABLE `empresa` (
+CREATE TABLE `empresa_proveedora` (
   `id_empresa_proveedora` int(11) NOT NULL,
-  `Nombre` varchar(30) DEFAULT NULL
+  `empresa_proveedora` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `empresa_proveedora`
+--
+
+INSERT INTO `empresa_proveedora` (`id_empresa_proveedora`, `empresa_proveedora`) VALUES
+(1, 'Proveedores Alimenticios S.A.'),
+(2, 'Limpieza Total S.A.'),
+(3, 'Cocina Facil Ltda.'),
+(4, 'TecnoMundo S.A.'),
+(5, 'Salsas y Embutidos XYZ'),
+(6, 'Proteccion Plus S.A.'),
+(7, 'Escolar Express S.A.'),
+(8, 'Muebles y Mas S.A.'),
+(9, 'Salud Integral Ltda.'),
+(10, 'Bebe Feliz S.A.');
 
 -- --------------------------------------------------------
 
@@ -154,7 +170,7 @@ INSERT INTO `estado` (`id_estado`, `Estado`) VALUES
 
 CREATE TABLE `inventario` (
   `id_producto` varchar(8) NOT NULL,
-  `Nombre` varchar(25) DEFAULT NULL,
+  `Nombre` varchar(80) DEFAULT NULL,
   `Imagen` varchar(255) DEFAULT NULL,
   `Precio` int(11) DEFAULT NULL,
   `Stock` mediumint(9) DEFAULT NULL,
@@ -167,37 +183,38 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_producto`, `Nombre`, `Imagen`, `Precio`, `Stock`, `id_unidad_de_medida`, `id_categoria`) VALUES
-("P000001", 'Arroz Basmati 1kg', 'imagenes/arroz_basmati_1kg.jpg', 2500, 150, 4, 1),
-("P000002", 'Detergente Líquido 1L', 'imagenes/detergente_liquido_1L.jpg', 1800, 80, 2, 2),
-("P000003", 'Cuchara de Cocina de Acer', 'imagenes/cuchara_cocina_acero.jpg', 600, 120, 3, 3),
-("P000004", 'Auriculares Bluetooth Ina', 'imagenes/auriculares_bluetooth.jpg', 5500, 25, 3, 4),
-("P000005", 'Jamón Curado 250g', 'imagenes/jamon_curado_250g.jpg', 3000, 50, 5, 5),
-("P000006", 'Guantes de Protección Nit', 'imagenes/guantes_proteccion_nitrilo.jpg', 1200, 100, 3, 6),
-("P000007", 'Cuaderno Rayado 100 Hojas', 'imagenes/cuaderno_rayado_100_hojas.jpg', 400, 200, 3, 7),
-("P000008", 'Silla Ergonomica de Ofici', 'imagenes/silla_ergonomica.jpg', 15000, 15, 3, 8),
-("P000009", 'Vitamina C 1000mg 60 Tabl', 'imagenes/vitamina_c_1000mg.jpg', 1500, 70, 3, 9),
-("P000010", 'Pañales Talla M 30 Unidad', 'imagenes/panales_talla_m.jpg', 1000, 90, 3, 10),
-("P000011", 'Arroz Integral 1kg', 'imagenes/arroz_integral_1kg.jpg', 2700, 100, 4, 1),
-("P000012", 'Aceite de Oliva 500ml', 'imagenes/aceite_oliva_500ml.jpg', 3200, 60, 2, 1),
-("P000013", 'Harina de Trigo 1kg', 'imagenes/harina_trigo_1kg.jpg', 1200, 80, 4, 1),
-("P000014", 'Limpiador Multiusos 500ml', 'imagenes/limpiador_multiusos_500ml.jpg', 1500, 90, 2, 2),
-("P000015", 'Detergente en Polvo 1kg', 'imagenes/detergente_en_polvo_1kg.jpg', 1600, 70, 2, 2),
-("P000016", 'Desinfectante de Superficies 1L', 'imagenes/desinfectante_superficies_1L.jpg', 2000, 85, 2, 2),
-("P000017", 'Cuchillo de Chef', 'imagenes/cuchillo_chef.jpg', 2500, 75, 3, 3),
-("P000018", 'Olla de Acero Inoxidable 3L', 'imagenes/olla_acero_3L.jpg', 5000, 40, 3, 3),
-("P000019", 'Juego de Cucharas Medidoras', 'imagenes/juego_cucharas_medidoras.jpg', 800, 150, 3, 3),
-("P000020", 'Altavoz Bluetooth', 'imagenes/altavoz_bluetooth.jpg', 3500, 35, 3, 4),
-("P000021", 'Cargador Inalámbrico', 'imagenes/cargador_inalambrico.jpg', 2000, 50, 3, 4),
-("P000022", 'Cámara de Seguridad Wi-Fi', 'imagenes/camara_seguridad_wifi.jpg', 8000, 20, 3, 4),
-("P000023", 'Salami 200g', 'imagenes/salami_200g.jpg', 2500, 70, 5, 5),
-("P000024", 'Pechuga de Pavo 300g', 'imagenes/pechuga_pavo_300g.jpg', 2700, 60, 5, 5),
-("P000025", 'Chorizo Español 250g', 'imagenes/chorizo_espanol_250g.jpg', 2900, 55, 5, 5),
-("P000026", 'Máscara de Protección', 'imagenes/mascara_proteccion.jpg', 1800, 80, 3, 6),
-("P000027", 'Gafas de Seguridad', 'imagenes/gafas_seguridad.jpg', 2200, 60, 3, 6),
-("P000028", 'Casco de Seguridad', 'imagenes/casco_seguridad.jpg', 3500, 40, 3, 6),
-("P000029", 'Bolígrafo de Color', 'imagenes/boligrafo_color.jpg', 300, 250, 3, 7),
-("P000030", 'Marcadores Textiles', 'imagenes/marcadores_textiles.jpg', 500, 180, 3, 7),
-("P000031", 'Carpeta A4', 'imagenes/carpeta_A4.jpg', 700, 150, 3, 7);
+('AL000001', 'Arroz Basmati 1kg', 'imagenes/arroz_basmati_1kg.jpg', 2500, 150, 4, 1),
+('AL000011', 'Arroz Integral 1kg', 'imagenes/arroz_integral_1kg.jpg', 2700, 100, 4, 1),
+('AL000012', 'Aceite de Oliva 500ml', 'imagenes/aceite_oliva_500ml.jpg', 3200, 60, 2, 1),
+('AL000013', 'Harina de Trigo 1kg', 'imagenes/harina_trigo_1kg.jpg', 1200, 80, 4, 1),
+('AS000002', 'Detergente Liquido 1L', 'imagenes/detergente_liquido_1L.jpg', 1800, 80, 2, 2),
+('AS000014', 'Limpiador Multiusos 500ml', 'imagenes/limpiador_multiusos_500ml.jpg', 1500, 90, 2, 2),
+('AS000015', 'Detergente en Polvo 1kg', 'imagenes/detergente_en_polvo_1kg.jpg', 1600, 70, 2, 2),
+('AS000016', 'Desinfectante de Superficies 1L', 'imagenes/desinfectante_superficies_1L.jpg', 2000, 85, 2, 2),
+('BB000010', 'Panales Talla M 30 Unidades', 'imagenes/panales_talla_m.jpg', 1000, 90, 3, 10),
+('CK000003', 'Cuchara de Cocina de Acero', 'imagenes/cuchara_cocina_acero.jpg', 600, 120, 3, 3),
+('CK000017', 'Cuchillo de Chef', 'imagenes/cuchillo_chef.jpg', 2500, 75, 3, 3),
+('CK000018', 'Olla de Acero Inoxidable 3L', 'imagenes/olla_acero_3L.jpg', 5000, 40, 3, 3),
+('CK000019', 'Juego de Cucharas Medidoras', 'imagenes/juego_cucharas_medidoras.jpg', 800, 150, 3, 3),
+('CS000009', 'Vitamina C 1000mg 60 Tabletas', 'imagenes/vitamina_c_1000mg.jpg', 1500, 70, 3, 9),
+('DT000004', 'Auriculares Bluetooth Ina', 'imagenes/auriculares_bluetooth.jpg', 5500, 25, 3, 4),
+('DT000020', 'Altavoz Bluetooth', 'imagenes/altavoz_bluetooth.jpg', 3500, 35, 3, 4),
+('DT000021', 'Cargador Inalambrico', 'imagenes/cargador_inalambrico.jpg', 2000, 50, 3, 4),
+('DT000022', 'Camara de Seguridad Wi-Fi', 'imagenes/camara_seguridad_wifi.jpg', 8000, 20, 3, 4),
+('MB000008', 'Silla Ergonomica de Oficina', 'imagenes/silla_ergonomica.jpg', 15000, 15, 3, 8),
+('PP000006', 'Guantes de Proteccion Nitrilo', 'imagenes/guantes_proteccion_nitrilo.jpg', 1200, 100, 3, 6),
+('PP000026', 'Mascara de Proteccion', 'imagenes/mascara_proteccion.jpg', 1800, 80, 3, 6),
+('PP000027', 'Gafas de Seguridad', 'imagenes/gafas_seguridad.jpg', 2200, 60, 3, 6),
+('PP000028', 'Casco de Seguridad', 'imagenes/casco_seguridad.jpg', 3500, 40, 3, 6),
+('SA000005', 'Jamon Curado 250g', 'imagenes/jamon_curado_250g.jpg', 3000, 50, 5, 5),
+('SA000023', 'Salami 200g', 'imagenes/salami_200g.jpg', 2500, 70, 5, 5),
+('SA000024', 'Pechuga de Pavo 300g', 'imagenes/pechuga_pavo_300g.jpg', 2700, 60, 5, 5),
+('SA000025', 'Chorizo Espanol 250g', 'imagenes/chorizo_espanol_250g.jpg', 2900, 55, 5, 5),
+('SC000007', 'Cuaderno Rayado 100 Hojas', 'imagenes/cuaderno_rayado_100_hojas.jpg', 400, 200, 3, 7),
+('SC000029', 'Boligrafo de Color', 'imagenes/boligrafo_color.jpg', 300, 250, 3, 7),
+('SC000030', 'Marcadores Textiles', 'imagenes/marcadores_textiles.jpg', 500, 180, 3, 7),
+('SC000031', 'Carpeta A4', 'imagenes/carpeta_A4.jpg', 700, 150, 3, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -346,9 +363,9 @@ ALTER TABLE `empleados`
   ADD KEY `id_rol` (`id_rol`);
 
 --
--- Indices de la tabla `empresa`
+-- Indices de la tabla `empresa_proveedora`
 --
-ALTER TABLE `empresa`
+ALTER TABLE `empresa_proveedora`
   ADD PRIMARY KEY (`id_empresa_proveedora`);
 
 --
@@ -416,6 +433,12 @@ ALTER TABLE `ventas_hoy`
 --
 ALTER TABLE `categoria`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `empresa_proveedora`
+--
+ALTER TABLE `empresa_proveedora`
+  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
