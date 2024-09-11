@@ -86,10 +86,14 @@
     $conexion=MiConexion();
     if(isset($_POST['RegistrarLote'])){
         include "../Uso_multiple/CapturarDatosLotes.php";
-        $sentencia_registrar =$conexion->prepare("INSERT INTO inventario (id_producto, id_categoria, Precio, Stock, id_unidad_de_medida, Imagen) VALUES (:id_producto, :id_categoria, :Precio, :Stock, :id_unidad_de_medida, :Imagen)");
+        $buscar_producto = $conexion->prepare("SELECT * FROM inventario");
+        $buscar_producto->execute();
+        
+        $sentencia_registrar =$conexion->prepare("INSERT INTO inventario (id_producto, Nombre, id_categoria, Precio, Stock, id_unidad_de_medida, Imagen) VALUES (:id_producto, :Nombre, :id_categoria, :Precio, :Stock, :id_unidad_de_medida, :Imagen)");
         $sentencia_registrar->execute(
             array(
-                ':id_producto' => $Producto,
+                ':id_producto' => $id_producto,
+                ':Nombre' => $Producto,
                 ':id_categoria' => $Categoria,
                 ':Precio' => 0,
                 ':Stock' => $Cantidad,
