@@ -18,6 +18,7 @@
     Nuevo: <input type="radio" name="opcion_categoria" id="" value="nuevo" onchange="Mostrar(this.value, 'categoria')">
     Existente <input type="radio" name="opcion_categoria" id="" value="existente" onchange="Mostrar(this.value, 'categoria')">
     <input type="text" name="Categoria" disabled style="display: none;" id="nuevo_categoria">
+    <input type="text" name="Abreviatura_Categoria" disabled style="display: none;" id="Abreviatura_Categoria">
     <select name="Categoria" disabled style="display: none;" id="existente_categoria">
         <?php
             require_once "../Uso_multiple/MostrarCategorias.php";
@@ -63,6 +64,13 @@
             document.getElementById("nuevo_"+opcion).disabled = false;
             document.getElementById("existente_"+opcion).style.display="none";
             document.getElementById("existente_"+opcion).disabled = true;
+            if(opcion == "categoria"){
+                document.getElementById("abreviatura_categoria").style.display="block";
+                document.getElementById("abreviatura_categoria").disabled = false; 
+            }else {
+                document.getElementById("abreviatura_categoria").style.display="none";
+                document.getElementById("abreviatura_categoria").disabled = true; 
+            }
         }else if (valor == "existente"){
             document.getElementById("existente_"+opcion).style.display="block";
             document.getElementById("nuevo_"+opcion).disabled = true;
