@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-09-2024 a las 03:54:37
+-- Tiempo de generación: 12-09-2024 a las 00:25:46
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,24 +29,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
-  `categoria` varchar(50) DEFAULT NULL
+  `categoria` varchar(50) DEFAULT NULL,
+  `abreviatura` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `categoria`) VALUES
-(1, 'Alimentos'),
-(2, 'Productos de aseo'),
-(3, 'Articulos de cocina'),
-(4, 'Dispositivos tecnologicos'),
-(5, 'Salsamentarias'),
-(6, 'Articulos de proteccion personal'),
-(7, 'Articulos escolares'),
-(8, 'Muebles'),
-(9, 'Cuidado de la salud'),
-(10, 'Productos para bebes');
+INSERT INTO `categoria` (`id_categoria`, `categoria`, `abreviatura`) VALUES
+(1, 'Alimentos', 'AL'),
+(2, 'Productos de aseo', 'AS'),
+(3, 'Articulos de cocina', 'CK'),
+(4, 'Dispositivos tecnologicos', 'DT'),
+(5, 'Salsamentarias', 'SA'),
+(6, 'Articulos de proteccion personal', 'PP'),
+(7, 'Articulos escolares', 'SC'),
+(8, 'Muebles', 'MB'),
+(9, 'Cuidado de la salud', 'CS'),
+(10, 'Productos para bebes', 'BB');
 
 -- --------------------------------------------------------
 
