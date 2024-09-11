@@ -2,75 +2,39 @@
     //se van a capturar los datos de id del lote, producto, categoria, estado, cantidad, unidad de medida, fecha de elaboracion, fecha de expiracion, proveedor y ubicacion
 
     $Id_Lote = $_POST['Id_Lote'];
-    $id_ategoria = $_POST['id_categoria'];
+    $opcion_categoria = $_POST['opcion_categoria'];
+    $categoria = $_POST['Categoria']
+    if($opcion_categoria == "nuevo"){
+        $abreviatura_categoria = $_POST['Abreviatura_Categoria'];
+        $insertar_categoria = $conexion->prepare("INSERT INTO categoria (categoria, abreviatura) VALUES('".$categoria."', '".$abreviatura_categoria."')");
+        $insertar_categoria->execute();
+
+        $buscar_ultima_categoria = $conexion->prepare("SELECT * FROM categoria ORDER BY id_categoria DESC LIMIT 1");
+        $buscar_ultima_categoria->execute();
+        $ultima_categoria = $buscar_ultima_categoria->fetch(PDO::FETCH_ASSOC);
+        $id_categoria = $ultima_categoria['id_categoria'];
+    }else {
+        $id_ategoria = $_POST['id_categoria'];
+    }
     $opcion_producto = $_POST['opcion_producto'];
     if($opcion_producto == "nuevo"){
-    switch ($id_categoria) {
-        case '1':
-            // Código para manejar la categoría "Alimentos"
-            $id_producto = "A".""."";
-            // Agrega aquí el código específico para "Alimentos"
-            break;
-            
-        case '2':
-            // Código para manejar la categoría "Productos de Limpieza"
-            $id_producto = "L".""."";
-            // Agrega aquí el código específico para "Productos de Limpieza"
-            break;
-            
-        case '3':
-            // Código para manejar la categoría "Utensilios de Cocina"
-            $id_producto = "U".""."";
-            // Agrega aquí el código específico para "Utensilios de Cocina"
-            break;
-            
-        case '4':
-            // Código para manejar la categoría "Electrónicos"
-            $id_producto = "E".""."";
-            // Agrega aquí el código específico para "Electrónicos"
-            break;
-            
-        case '5':
-            // Código para manejar la categoría "Charcutería"
-            $id_producto = "C".""."";
-            // Agrega aquí el código específico para "Charcutería"
-            break;
-            
-        case '6':
-            // Código para manejar la categoría "Seguridad y Protección"
-            $id_producto = "S".""."";
-            // Agrega aquí el código específico para "Seguridad y Protección"
-            break;
-            
-        case '7':
-            // Código para manejar la categoría "Papelería"
-            $id_producto = "P".""."";
-            // Agrega aquí el código específico para "Papelería"
-            break;
-            
-        case '8':
-            // Código para manejar la categoría "Mobiliario"
-            $id_producto = "M".""."";
-            // Agrega aquí el código específico para "Mobiliario"
-            break;
-            
-        case '9':
-            // Código para manejar la categoría "Suplementos y Vitaminas"
-            $id_producto = "V".""."";
-            // Agrega aquí el código específico para "Suplementos y Vitaminas"
-            break;
-            
-        case '10':
-            // Código para manejar la categoría "Productos para Bebés"
-            $id_producto = "B".""."";
-            // Agrega aquí el código específico para "Productos para Bebés"
-            break;
-            
-        default:
-            // Código para manejar cualquier categoría no definida
-            echo "Categoría no definida";
-            break;
-    }
+        // Obtener el último ID del producto de la misma categoría
+        $buscar_ultima_id = $conexion->prepare("SELECT MAX(id_producto) AS max_id FROM productos WHERE id_producto LIKE :prefix");
+        $buscar_ultima_id->execute(['prefix' => $categoryAbbreviation . '%']);
+        $resultado_IDS = $buscar_ultima_id->fetch(PDO::FETCH_ASSOC);
+        if ($resultado_IDS && $resultado_IDS['max_id']) {
+            // Obtener el máximo ID
+            $ultima_id = $resultado_IDS['max_id'];
+        
+            // Extraer el número del último ID y incrementarlo
+            $siguienteNumeroID = intval(substr($ultima_id, 2)) + 1;
+        } else {
+            // Si no hay ningún ID, comenzar con 1
+            $siguienteNumeroID = 1;
+        }
+        
+        // Formatear el nuevo ID
+        $id_producto = $abreviatura_categoria.str_pad($siguienteNumeroID, 6, '0', STR_PAD_LEFT);
     }else{
         $id_producto = $_POST['Producto'];
     }
@@ -79,7 +43,18 @@
     $id_unidad_de_medida = $_POST['id_unidad_de_medida'];
     $Fecha_Elaboracion = $_POST['Fecha_Elaboracion'];
     $Fecha_Expiracion = $_POST['Fecha_Expiracion'];
-    $id_proveedor = $_POST['id_proveedor'];
-    $id_ubicacion = $_POST['id_ubicacion'];
+    $opcion_proveedor = $_POST['opcion_proveedor'];
+    $proveedor = $_POST['Proveedor']
+    if($opcion_proveedor == "nuevo"){
+        $insertar_proveedor = $conexion->prepare("INSERT INTO categoria (empresa_proveedora) VALUES(:proveedor)");
+        $insertar_proveedor->execute(array(":proveedor"=>$proveedor));
 
+        $buscar_ultimo_proveedor = $conexion->prepare("SELECT * FROM empresa_proveedora ORDER BY id_empresa_proveedora DESC LIMIT 1");
+        $buscar_ultimo_proveedor->execute();
+        $ultimo_proveedor = $buscar_ultima_proveedor->fetch(PDO::FETCH_ASSOC);
+        $id_proveedor = $ultimo_proveedor['id_proveedor'];
+    }else {
+        $id_proveedor = $_POST['id_proveedor'];
+    }
+    $id_ubicacion = $_POST['id_ubicacion'];
 ?>
