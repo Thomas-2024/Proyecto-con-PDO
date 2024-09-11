@@ -38,6 +38,7 @@
     }else{
         $id_producto = $_POST['Producto'];
     }
+    $producto = $_POST['Producto']
     $id_estado = $_POST['id_estado'];
     $Cantidad = $_POST['Cantidad'];
     $id_unidad_de_medida = $_POST['id_unidad_de_medida'];
