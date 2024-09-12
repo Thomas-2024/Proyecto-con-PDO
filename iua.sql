@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2024 a las 00:25:46
+-- Servidor: localhost:3307
+-- Tiempo de generación: 13-09-2024 a las 00:33:40
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -225,9 +225,13 @@ INSERT INTO `inventario` (`id_producto`, `Nombre`, `Imagen`, `Precio`, `Stock`, 
 CREATE TABLE `lote` (
   `id_lote` varchar(25) NOT NULL,
   `id_producto` varchar(25) DEFAULT NULL,
+  `id_estado` int(11) DEFAULT NULL,
   `cantidad_productos` mediumint(9) DEFAULT NULL,
+  `id_unidad_de_medida` int(11) DEFAULT NULL,
   `Fecha_Elaboracion` varchar(20) DEFAULT NULL,
-  `Fecha_Expiracion` varchar(20) DEFAULT NULL
+  `Fecha_Expiracion` varchar(20) DEFAULT NULL,
+  `id_proveedor` int(11) DEFAULT NULL,
+  `id_ubicacion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -300,10 +304,19 @@ INSERT INTO `rol` (`rol_nombre`, `Crear_Roles`, `Modificar_permisos`, `Menu_admi
 
 CREATE TABLE `ubicacion` (
   `id_ubicacion` int(11) NOT NULL,
-  `id_cajas` varchar(10) DEFAULT NULL,
-  `Modulo` varchar(15) DEFAULT NULL,
-  `Estante` varchar(35) DEFAULT NULL
+  `Modulo_Estante` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ubicacion`
+--
+
+INSERT INTO `ubicacion` (`id_ubicacion`, `Modulo_Estante`) VALUES
+(1, 'A1'),
+(2, 'B2'),
+(3, 'C3'),
+(4, 'D4'),
+(5, 'E5');
 
 -- --------------------------------------------------------
 
@@ -387,7 +400,11 @@ ALTER TABLE `inventario`
 -- Indices de la tabla `lote`
 --
 ALTER TABLE `lote`
-  ADD PRIMARY KEY (`id_lote`);
+  ADD PRIMARY KEY (`id_lote`),
+  ADD KEY `fk_estado` (`id_estado`),
+  ADD KEY `fk_unidad_de_medida` (`id_unidad_de_medida`),
+  ADD KEY `fk_proveedor` (`id_proveedor`),
+  ADD KEY `fk_ubicacion` (`id_ubicacion`);
 
 --
 -- Indices de la tabla `pedido`
@@ -475,6 +492,15 @@ ALTER TABLE `empleados`
 ALTER TABLE `inventario`
   ADD CONSTRAINT `inventario_ibfk_2` FOREIGN KEY (`id_unidad_de_medida`) REFERENCES `unidades_de_medida` (`id_unidad_medida`),
   ADD CONSTRAINT `inventario_ibfk_3` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+
+--
+-- Filtros para la tabla `lote`
+--
+ALTER TABLE `lote`
+  ADD CONSTRAINT `fk_estado` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`),
+  ADD CONSTRAINT `fk_proveedor` FOREIGN KEY (`id_proveedor`) REFERENCES `empresa_proveedora` (`id_empresa_proveedora`),
+  ADD CONSTRAINT `fk_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion` (`id_ubicacion`),
+  ADD CONSTRAINT `fk_unidad_de_medida` FOREIGN KEY (`id_unidad_de_medida`) REFERENCES `unidades_de_medida` (`id_unidad_medida`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
