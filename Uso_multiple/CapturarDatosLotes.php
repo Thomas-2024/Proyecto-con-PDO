@@ -3,24 +3,25 @@
 
     $Id_Lote = $_POST['Id_Lote'];
     $opcion_categoria = $_POST['opcion_categoria'];
-    $categoria = $_POST['Categoria']
+    $categoria = $_POST['Categoria'];
     if($opcion_categoria == "nuevo"){
         $abreviatura_categoria = $_POST['Abreviatura_Categoria'];
-        $insertar_categoria = $conexion->prepare("INSERT INTO categoria (categoria, abreviatura) VALUES('".$categoria."', '".$abreviatura_categoria."')");
-        $insertar_categoria->execute();
+        $insertar_categoria = $conexion->prepare("INSERT INTO categoria (categoria, abreviatura) VALUES(:categoria, :abreviatura)");
+        $insertar_categoria->execute(array(":categoria"=>$categoria, ":abreviatura"=>$abreviatura_categoria));
 
         $buscar_ultima_categoria = $conexion->prepare("SELECT * FROM categoria ORDER BY id_categoria DESC LIMIT 1");
         $buscar_ultima_categoria->execute();
         $ultima_categoria = $buscar_ultima_categoria->fetch(PDO::FETCH_ASSOC);
         $id_categoria = $ultima_categoria['id_categoria'];
     }else {
-        $id_ategoria = $_POST['id_categoria'];
+        $id_categoria = $_POST['id_categoria'];
     }
     $opcion_producto = $_POST['opcion_producto'];
     if($opcion_producto == "nuevo"){
+        $precio = $_POST['Precio'];
         // Obtener el último ID del producto de la misma categoría
         $buscar_ultima_id = $conexion->prepare("SELECT MAX(id_producto) AS max_id FROM productos WHERE id_producto LIKE :prefix");
-        $buscar_ultima_id->execute(['prefix' => $categoryAbbreviation . '%']);
+        $buscar_ultima_id->execute(['prefix' => $abreviatura_categoria . '%']);
         $resultado_IDS = $buscar_ultima_id->fetch(PDO::FETCH_ASSOC);
         if ($resultado_IDS && $resultado_IDS['max_id']) {
             // Obtener el máximo ID
@@ -38,14 +39,14 @@
     }else{
         $id_producto = $_POST['Producto'];
     }
-    $producto = $_POST['Producto']
+    $producto = $_POST['Producto'];
     $id_estado = $_POST['id_estado'];
-    $Cantidad = $_POST['Cantidad'];
+    $cantidad = $_POST['Cantidad'];
     $id_unidad_de_medida = $_POST['id_unidad_de_medida'];
     $Fecha_Elaboracion = $_POST['Fecha_Elaboracion'];
     $Fecha_Expiracion = $_POST['Fecha_Expiracion'];
     $opcion_proveedor = $_POST['opcion_proveedor'];
-    $proveedor = $_POST['Proveedor']
+    $proveedor = $_POST['Proveedor'];
     if($opcion_proveedor == "nuevo"){
         $insertar_proveedor = $conexion->prepare("INSERT INTO categoria (empresa_proveedora) VALUES(:proveedor)");
         $insertar_proveedor->execute(array(":proveedor"=>$proveedor));
