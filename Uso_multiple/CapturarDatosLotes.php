@@ -14,13 +14,13 @@
         $ultima_categoria = $buscar_ultima_categoria->fetch(PDO::FETCH_ASSOC);
         $id_categoria = $ultima_categoria['id_categoria'];
     }else {
-        $id_categoria = $_POST['id_categoria'];
+        $id_categoria = $_POST['Categoria'];
     }
     $opcion_producto = $_POST['opcion_producto'];
     if($opcion_producto == "nuevo"){
         $precio = $_POST['Precio'];
         // Obtener el último ID del producto de la misma categoría
-        $buscar_ultima_id = $conexion->prepare("SELECT MAX(id_producto) AS max_id FROM productos WHERE id_producto LIKE :prefix");
+        $buscar_ultima_id = $conexion->prepare("SELECT MAX(id_producto) AS max_id FROM producto WHERE id_producto LIKE :prefix");
         $buscar_ultima_id->execute(['prefix' => $abreviatura_categoria . '%']);
         $resultado_IDS = $buscar_ultima_id->fetch(PDO::FETCH_ASSOC);
         if ($resultado_IDS && $resultado_IDS['max_id']) {
@@ -40,13 +40,12 @@
         $id_producto = $_POST['Producto'];
     }
     $producto = $_POST['Producto'];
-    $id_estado = $_POST['id_estado'];
+    $id_estado = $_POST['Estado'];
     $cantidad = $_POST['Cantidad'];
-    $id_unidad_de_medida = $_POST['id_unidad_de_medida'];
+    $id_unidad_de_medida = $_POST['Unidad_de_medida'];
     $Fecha_Elaboracion = $_POST['Fecha_Elaboracion'];
     $Fecha_Expiracion = $_POST['Fecha_Expiracion'];
     $opcion_proveedor = $_POST['opcion_proveedor'];
-    $proveedor = $_POST['Proveedor'];
     if($opcion_proveedor == "nuevo"){
         $insertar_proveedor = $conexion->prepare("INSERT INTO categoria (empresa_proveedora) VALUES(:proveedor)");
         $insertar_proveedor->execute(array(":proveedor"=>$proveedor));
@@ -56,7 +55,7 @@
         $ultimo_proveedor = $buscar_ultima_proveedor->fetch(PDO::FETCH_ASSOC);
         $id_proveedor = $ultimo_proveedor['id_proveedor'];
     }else {
-        $id_proveedor = $_POST['id_proveedor'];
+        $id_proveedor = $_POST['Proveedor'];
     }
-    $id_ubicacion = $_POST['id_ubicacion'];
+    $id_ubicacion = $_POST['Ubicacion'];
 ?>

@@ -3,7 +3,7 @@
         $lista_estados = "";
         include_once "Conexion.php";
         $Mienlace=MiConexion();
-        $estados = $Mienlace->prepare("SELECT * FROM categoria");
+        $estados = $Mienlace->prepare("SELECT * FROM estado");
         $estados->execute();
         $matrizEstados = $estados->fetchAll();
         foreach($matrizEstados as $filaEstado){
