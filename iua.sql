@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2024 a las 23:17:16
+-- Tiempo de generación: 15-09-2024 a las 00:48:42
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -48,7 +48,8 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`, `abreviatura`) VALUES
 (8, 'Muebles', 'MB'),
 (9, 'Cuidado de la salud', 'CS'),
 (10, 'Productos para bebes', 'BB'),
-(19, 'Juguetes', 'JG');
+(19, 'Juguetes', 'JG'),
+(20, 'Construccion', 'CN');
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,8 @@ INSERT INTO `empresa_proveedora` (`id_empresa_proveedora`, `empresa_proveedora`)
 (8, 'Muebles y Mas S.A.'),
 (9, 'Salud Integral Ltda.'),
 (10, 'Bebe Feliz S.A.'),
-(14, 'Entretenimiento a lo Grande');
+(14, 'Entretenimiento a lo Grande'),
+(15, 'Construcciones Fantasticas');
 
 -- --------------------------------------------------------
 
@@ -201,7 +203,9 @@ INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
 ('SC000029', 250, 31),
 ('SC000030', 180, 32),
 ('SC000031', 150, 33),
-('JG000002', 250, 34);
+('JG000002', 250, 34),
+('SC000032', 3000, 35),
+('CN000001', 4000, 36);
 
 -- --------------------------------------------------------
 
@@ -260,6 +264,8 @@ INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cant
 ('L031', 'SC000031', 1, 3, 90, 3, '2024-12-25', '2025-12-25', 8, 8),
 ('L032', 'JG000001', 1, 19, 500, 3, '2024-09-01', '', 14, 10),
 ('L033', 'JG000002', 1, 19, 250, 3, '2024-09-02', '', 14, 9),
+('L034', 'SC000032', 1, 7, 3000, 3, '2024-09-03', '', 7, 11),
+('L035', 'CN000001', 1, 20, 4000, 4, '2024-09-02', '', 15, 12),
 ('L041', 'SA000026', 1, 5, 3700, 3, '', '', 5, 15),
 ('L042', 'SA000027', 1, 5, 35000, 3, '', '', 5, 16),
 ('L043', 'SA000028', 1, 5, 35000, 3, '', '', 5, 17);
@@ -317,11 +323,12 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('AS000014', 'Limpiador Multiusos 500ml', 1500, 2, 2, '../imagenesdeproductos/aseo/Limpiador Multiusos 500ml.jpg'),
 ('AS000015', 'Detergente en Polvo 1kg', 1600, 2, 2, '../imagenesdeproductos/aseo/detergente-rindex-10-b-limon-1-kg.jpg'),
 ('AS000016', 'Desinfectante de Superficies 1L', 2000, 2, 2, '../imagenesdeproductos/aseo/Limoseptol-Advanced-HH-1L.jpg'),
-('BB000010', 'Panales Talla M', 1000, 3, 10, '../imagenesdeproductos/Productos para bebes/pa?alles m.jpg'),
+('BB000010', 'Panales Talla M', 1000, 3, 10, '../imagenesdeproductos/Productos para bebes/pa?ales-m.jpg'),
 ('CK000003', 'Cuchara de Cocina Acero', 600, 3, 3, '../imagenesdeproductos/cocina/cuchara-arrocera-grande-de-35-cm.jpg'),
 ('CK000017', 'Cuchillo Chef', 2500, 3, 3, '../imagenesdeproductos/cocina/cuchillo.jpg'),
 ('CK000018', 'Olla Acero 3L', 5000, 3, 3, '../imagenesdeproductos/cocina/olla.jpg'),
 ('CK000019', 'Juego de Cucharas Medidoras', 800, 3, 3, '../imagenesdeproductos/cocina/cucharas medidoras.jpg'),
+('CN000001', 'cemento 50kg', 100000, 4, 20, '../imagenesdeproductos/Construccion/ cemento.PNG'),
 ('CS000009', 'Vitamina C 1000mg', 1500, 3, 9, '../imagenesdeproductos/Cuidado de la salud/Vitamina C 1000mg 60 Tabletas.jpg'),
 ('DT000004', 'Auriculares Bluetooth', 5500, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/audifonos.jpg'),
 ('DT000020', 'Altavoz Bluetooth', 3500, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/Altavoz Bluetooth.jpg'),
@@ -338,11 +345,13 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('SA000023', 'Salami 200g', 2500, 5, 5, '../imagenesdeproductos/Salsamentarias/salami-200g.jpg'),
 ('SA000024', 'Pechuga de Pavo 300g', 2700, 5, 5, '../imagenesdeproductos/Salsamentarias/Pechuga de Pavo 300g.jpg'),
 ('SA000025', 'Chorizo Espanol 250g', 2900, 5, 5, '../imagenesdeproductos/Salsamentarias/chorizo.png'),
-('SA000028', 'Jamon 45 tajadas', 34000, 3, 5, 'nada'),
+('SA000028', 'Jamon 45 tajadas', 34000, 3, 5, '../imagenesdeproductos/Salsamentarias/Jamon-45-tajadas.jpg'),
 ('SC000007', 'Cuaderno Rayado 100 Hojas', 400, 3, 7, '../imagenesdeproductos/Articulos escolares/Cuaderno Rayado 100 Hojas.jpg'),
 ('SC000029', 'Boligrafo de Color', 300, 3, 7, '../imagenesdeproductos/Articulos escolares/Boligrafo de Color.jpg'),
 ('SC000030', 'Marcadores Textiles', 500, 3, 7, '../imagenesdeproductos/Articulos escolares/marcadortextilfaber1.jpg'),
-('SC000031', 'Carpeta A4', 700, 3, 7, '../imagenesdeproductos/Articulos escolares/Carpeta A4.jpg');
+('SC000031', 'Carpeta A4', 700, 3, 7, '../imagenesdeproductos/Articulos escolares/Carpeta A4.jpg'),
+('SC000032', 'Caja de lapices 12 u', 12000, 3, 7, '../imagenesdeproductos/Articulos escolares/Caja_de_lapices_12_u.jpg'),
+('SC000033', 'Caja de lapices 12 u', 12000, 3, 7, '../imagenesdeproductos/Articulos escolares/Caja_de_lapices_12_u.jpg');
 
 -- --------------------------------------------------------
 
@@ -618,13 +627,13 @@ ALTER TABLE `ventas_hoy`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa_proveedora`
 --
 ALTER TABLE `empresa_proveedora`
-  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -636,7 +645,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
