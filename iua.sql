@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3307
--- Tiempo de generación: 13-09-2024 a las 23:58:57
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-09-2024 a las 23:17:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -47,7 +47,8 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`, `abreviatura`) VALUES
 (7, 'Articulos escolares', 'SC'),
 (8, 'Muebles', 'MB'),
 (9, 'Cuidado de la salud', 'CS'),
-(10, 'Productos para bebes', 'BB');
+(10, 'Productos para bebes', 'BB'),
+(19, 'Juguetes', 'JG');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,8 @@ INSERT INTO `empresa_proveedora` (`id_empresa_proveedora`, `empresa_proveedora`)
 (7, 'Escolar Express S.A.'),
 (8, 'Muebles y Mas S.A.'),
 (9, 'Salud Integral Ltda.'),
-(10, 'Bebe Feliz S.A.');
+(10, 'Bebe Feliz S.A.'),
+(14, 'Entretenimiento a lo Grande');
 
 -- --------------------------------------------------------
 
@@ -157,50 +159,49 @@ INSERT INTO `estado` (`id_estado`, `Estado`) VALUES
 
 CREATE TABLE `inventario` (
   `id_producto` varchar(8) NOT NULL,
-  `Nombre` varchar(80) DEFAULT NULL,
-  `Imagen` varchar(255) DEFAULT NULL,
-  `Precio` int(11) DEFAULT NULL,
   `Stock` mediumint(9) DEFAULT NULL,
-  `id_unidad_de_medida` int(11) DEFAULT NULL,
-  `id_categoria` int(11) DEFAULT NULL
+  `registro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `inventario`
 --
 
-INSERT INTO `inventario` (`id_producto`, `Nombre`, `Imagen`, `Precio`, `Stock`, `id_unidad_de_medida`, `id_categoria`) VALUES
-('AL000001', 'Arroz Basmati 1kg', 'imagenes/arroz_basmati_1kg.jpg', 2500, 3400, 4, 1),
-('AL000011', 'Arroz Integral 1kg', 'imagenes/arroz_integral_1kg.jpg', 2700, 100, 4, 1),
-('AL000012', 'Aceite de Oliva 500ml', 'imagenes/aceite_oliva_500ml.jpg', 3200, 60, 2, 1),
-('AL000013', 'Harina de Trigo 1kg', 'imagenes/harina_trigo_1kg.jpg', 1200, 80, 4, 1),
-('AS000002', 'Detergente Liquido 1L', 'imagenes/detergente_liquido_1L.jpg', 1800, 80, 2, 2),
-('AS000014', 'Limpiador Multiusos 500ml', 'imagenes/limpiador_multiusos_500ml.jpg', 1500, 90, 2, 2),
-('AS000015', 'Detergente en Polvo 1kg', 'imagenes/detergente_en_polvo_1kg.jpg', 1600, 70, 2, 2),
-('AS000016', 'Desinfectante de Superficies 1L', 'imagenes/desinfectante_superficies_1L.jpg', 2000, 85, 2, 2),
-('BB000010', 'Panales Talla M 30 Unidades', 'imagenes/panales_talla_m.jpg', 1000, 90, 3, 10),
-('CK000003', 'Cuchara de Cocina de Acero', 'imagenes/cuchara_cocina_acero.jpg', 600, 120, 3, 3),
-('CK000017', 'Cuchillo de Chef', 'imagenes/cuchillo_chef.jpg', 2500, 75, 3, 3),
-('CK000018', 'Olla de Acero Inoxidable 3L', 'imagenes/olla_acero_3L.jpg', 5000, 40, 3, 3),
-('CK000019', 'Juego de Cucharas Medidoras', 'imagenes/juego_cucharas_medidoras.jpg', 800, 150, 3, 3),
-('CS000009', 'Vitamina C 1000mg 60 Tabletas', 'imagenes/vitamina_c_1000mg.jpg', 1500, 70, 3, 9),
-('DT000004', 'Auriculares Bluetooth Ina', 'imagenes/auriculares_bluetooth.jpg', 5500, 25, 3, 4),
-('DT000020', 'Altavoz Bluetooth', 'imagenes/altavoz_bluetooth.jpg', 3500, 35, 3, 4),
-('DT000021', 'Cargador Inalambrico', 'imagenes/cargador_inalambrico.jpg', 2000, 50, 3, 4),
-('DT000022', 'Camara de Seguridad Wi-Fi', 'imagenes/camara_seguridad_wifi.jpg', 8000, 20, 3, 4),
-('MB000008', 'Silla Ergonomica de Oficina', 'imagenes/silla_ergonomica.jpg', 15000, 15, 3, 8),
-('PP000006', 'Guantes de Proteccion Nitrilo', 'imagenes/guantes_proteccion_nitrilo.jpg', 1200, 100, 3, 6),
-('PP000026', 'Mascara de Proteccion', 'imagenes/mascara_proteccion.jpg', 1800, 80, 3, 6),
-('PP000027', 'Gafas de Seguridad', 'imagenes/gafas_seguridad.jpg', 2200, 60, 3, 6),
-('PP000028', 'Casco de Seguridad', 'imagenes/casco_seguridad.jpg', 3500, 40, 3, 6),
-('SA000005', 'Jamon Curado 250g', 'imagenes/jamon_curado_250g.jpg', 3000, 50, 5, 5),
-('SA000023', 'Salami 200g', 'imagenes/salami_200g.jpg', 2500, 70, 5, 5),
-('SA000024', 'Pechuga de Pavo 300g', 'imagenes/pechuga_pavo_300g.jpg', 2700, 60, 5, 5),
-('SA000025', 'Chorizo Espanol 250g', 'imagenes/chorizo_espanol_250g.jpg', 2900, 55, 5, 5),
-('SC000007', 'Cuaderno Rayado 100 Hojas', 'imagenes/cuaderno_rayado_100_hojas.jpg', 400, 200, 3, 7),
-('SC000029', 'Boligrafo de Color', 'imagenes/boligrafo_color.jpg', 300, 250, 3, 7),
-('SC000030', 'Marcadores Textiles', 'imagenes/marcadores_textiles.jpg', 500, 180, 3, 7),
-('SC000031', 'Carpeta A4', 'imagenes/carpeta_A4.jpg', 700, 150, 3, 7);
+INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
+('AL000001', 3100, 1),
+('AL000011', 100, 2),
+('AL000012', 60, 3),
+('AL000013', 80, 4),
+('AS000002', 80, 5),
+('AS000014', 90, 6),
+('AS000015', 70, 7),
+('AS000016', 85, 8),
+('BB000010', 90, 9),
+('CK000003', 120, 10),
+('CK000017', 75, 11),
+('CK000018', 40, 12),
+('CK000019', 150, 13),
+('CS000009', 70, 14),
+('DT000004', 25, 15),
+('DT000020', 35, 16),
+('DT000021', 50, 17),
+('DT000022', 20, 18),
+('JG000001', 500, 19),
+('MB000008', 15, 20),
+('PP000006', 100, 21),
+('PP000026', 80, 22),
+('PP000027', 60, 23),
+('PP000028', 40, 24),
+('SA000005', 50, 25),
+('SA000023', 70, 26),
+('SA000024', 60, 27),
+('SA000025', 55, 28),
+('SA000028', 35000, 29),
+('SC000007', 200, 30),
+('SC000029', 250, 31),
+('SC000030', 180, 32),
+('SC000031', 150, 33),
+('JG000002', 250, 34);
 
 -- --------------------------------------------------------
 
@@ -257,9 +258,11 @@ INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cant
 ('L029', 'SC000029', 1, 3, 150, 3, '2024-12-15', '2025-12-15', 8, 8),
 ('L030', 'SC000030', 1, 3, 120, 3, '2024-12-20', '2025-12-20', 8, 8),
 ('L031', 'SC000031', 1, 3, 90, 3, '2024-12-25', '2025-12-25', 8, 8),
-('L032', 'AL000001', 1, 1, 3000, 4, '2024-09-02', '2025-01-25', 1, 9),
-('L033', 'AL000001', 1, 1, 300, 4, '2024-09-04', '2024-10-10', 1, 10),
-('L034', 'AL000001', 1, 1, 3400, 4, '2024-09-03', '2024-10-04', 1, 11);
+('L032', 'JG000001', 1, 19, 500, 3, '2024-09-01', '', 14, 10),
+('L033', 'JG000002', 1, 19, 250, 3, '2024-09-02', '', 14, 9),
+('L041', 'SA000026', 1, 5, 3700, 3, '', '', 5, 15),
+('L042', 'SA000027', 1, 5, 35000, 3, '', '', 5, 16),
+('L043', 'SA000028', 1, 5, 35000, 3, '', '', 5, 17);
 
 -- --------------------------------------------------------
 
@@ -285,6 +288,61 @@ CREATE TABLE `personal` (
   `id_empleado` varchar(12) NOT NULL,
   `id_rol` varchar(14) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto`
+--
+
+CREATE TABLE `producto` (
+  `id_producto` varchar(8) NOT NULL,
+  `nombre_producto` varchar(80) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `id_unidad_de_medida` int(11) DEFAULT NULL,
+  `id_categoria` int(11) DEFAULT NULL,
+  `Imagen` varchar(100) NOT NULL DEFAULT 'nada'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_de_medida`, `id_categoria`, `Imagen`) VALUES
+('AL000001', 'Arroz Basmati 1kg', 2500, 4, 1, '../imagenesdeproductos/Alimentos/arrozbasmati.jpg'),
+('AL000011', 'Arroz Integral 1kg', 2700, 4, 1, '../imagenesdeproductos/Alimentos/arroz integral.jpg'),
+('AL000012', 'Aceite de Oliva 500ml', 3200, 2, 1, '../imagenesdeproductos/Alimentos/aceite de oliva.jpg'),
+('AL000013', 'Harina de Trigo 1kg', 1200, 4, 1, '../imagenesdeproductos/Alimentos/HarinaDeTrigo1-Kg.jpg'),
+('AS000002', 'Detergente Liquido 1L', 1800, 2, 2, '../imagenesdeproductos/aseo/DETERGENTE1L.jpg'),
+('AS000014', 'Limpiador Multiusos 500ml', 1500, 2, 2, '../imagenesdeproductos/aseo/Limpiador Multiusos 500ml.jpg'),
+('AS000015', 'Detergente en Polvo 1kg', 1600, 2, 2, '../imagenesdeproductos/aseo/detergente-rindex-10-b-limon-1-kg.jpg'),
+('AS000016', 'Desinfectante de Superficies 1L', 2000, 2, 2, '../imagenesdeproductos/aseo/Limoseptol-Advanced-HH-1L.jpg'),
+('BB000010', 'Panales Talla M', 1000, 3, 10, '../imagenesdeproductos/Productos para bebes/pa?alles m.jpg'),
+('CK000003', 'Cuchara de Cocina Acero', 600, 3, 3, '../imagenesdeproductos/cocina/cuchara-arrocera-grande-de-35-cm.jpg'),
+('CK000017', 'Cuchillo Chef', 2500, 3, 3, '../imagenesdeproductos/cocina/cuchillo.jpg'),
+('CK000018', 'Olla Acero 3L', 5000, 3, 3, '../imagenesdeproductos/cocina/olla.jpg'),
+('CK000019', 'Juego de Cucharas Medidoras', 800, 3, 3, '../imagenesdeproductos/cocina/cucharas medidoras.jpg'),
+('CS000009', 'Vitamina C 1000mg', 1500, 3, 9, '../imagenesdeproductos/Cuidado de la salud/Vitamina C 1000mg 60 Tabletas.jpg'),
+('DT000004', 'Auriculares Bluetooth', 5500, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/audifonos.jpg'),
+('DT000020', 'Altavoz Bluetooth', 3500, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/Altavoz Bluetooth.jpg'),
+('DT000021', 'Cargador Inalambrico', 2000, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/Cargador Inalambrico.jpg'),
+('DT000022', 'Camara de Seguridad Wifi', 8000, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/Camara de Seguridad Wi-Fi.jpg'),
+('JG000001', 'Carro de juguete de 2 pasajeros', 1350000, 3, 19, 'nada'),
+('JG000002', 'Camion de juguete con 3 pasajeros', 2100000, 3, 19, 'nada'),
+('MB000008', 'Silla Ergonomica', 15000, 3, 8, '../imagenesdeproductos/Muebles/Silla Ergonomica de Oficina.jpg'),
+('PP000006', 'Guantes de Proteccion Nitrilo', 1200, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Guantes de Proteccion Nitrilo.jpg'),
+('PP000026', 'Mascarilla de Proteccion', 1800, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Mascara de Proteccion.jpg'),
+('PP000027', 'Gafas de Seguridad', 2200, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Gafas de Seguridad.jpg'),
+('PP000028', 'Casco de Seguridad', 3500, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Casco de Seguridad.jpg'),
+('SA000005', 'Jamon Curado 250g', 3000, 5, 5, '../imagenesdeproductos/Salsamentarias/Jamon Curado 250g.jpg'),
+('SA000023', 'Salami 200g', 2500, 5, 5, '../imagenesdeproductos/Salsamentarias/salami-200g.jpg'),
+('SA000024', 'Pechuga de Pavo 300g', 2700, 5, 5, '../imagenesdeproductos/Salsamentarias/Pechuga de Pavo 300g.jpg'),
+('SA000025', 'Chorizo Espanol 250g', 2900, 5, 5, '../imagenesdeproductos/Salsamentarias/chorizo.png'),
+('SA000028', 'Jamon 45 tajadas', 34000, 3, 5, 'nada'),
+('SC000007', 'Cuaderno Rayado 100 Hojas', 400, 3, 7, '../imagenesdeproductos/Articulos escolares/Cuaderno Rayado 100 Hojas.jpg'),
+('SC000029', 'Boligrafo de Color', 300, 3, 7, '../imagenesdeproductos/Articulos escolares/Boligrafo de Color.jpg'),
+('SC000030', 'Marcadores Textiles', 500, 3, 7, '../imagenesdeproductos/Articulos escolares/marcadortextilfaber1.jpg'),
+('SC000031', 'Carpeta A4', 700, 3, 7, '../imagenesdeproductos/Articulos escolares/Carpeta A4.jpg');
 
 -- --------------------------------------------------------
 
@@ -494,9 +552,8 @@ ALTER TABLE `estado`
 -- Indices de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  ADD PRIMARY KEY (`id_producto`),
-  ADD KEY `id_unidad_de_medida` (`id_unidad_de_medida`),
-  ADD KEY `id_categoria` (`id_categoria`);
+  ADD PRIMARY KEY (`registro`),
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `lote`
@@ -520,6 +577,14 @@ ALTER TABLE `pedido`
 --
 ALTER TABLE `personal`
   ADD PRIMARY KEY (`id_empleado`);
+
+--
+-- Indices de la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `id_unidad_de_medida` (`id_unidad_de_medida`),
+  ADD KEY `id_categoria` (`id_categoria`);
 
 --
 -- Indices de la tabla `rol`
@@ -553,19 +618,25 @@ ALTER TABLE `ventas_hoy`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa_proveedora`
 --
 ALTER TABLE `empresa_proveedora`
-  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `inventario`
+--
+ALTER TABLE `inventario`
+  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -593,8 +664,7 @@ ALTER TABLE `empleados`
 -- Filtros para la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  ADD CONSTRAINT `inventario_ibfk_2` FOREIGN KEY (`id_unidad_de_medida`) REFERENCES `unidades_de_medida` (`id_unidad_medida`),
-  ADD CONSTRAINT `inventario_ibfk_3` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+  ADD CONSTRAINT `inventario_ibfk_4` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);
 
 --
 -- Filtros para la tabla `lote`
@@ -605,6 +675,13 @@ ALTER TABLE `lote`
   ADD CONSTRAINT `fk_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicacion` (`id_ubicacion`),
   ADD CONSTRAINT `fk_unidad_de_medida` FOREIGN KEY (`id_unidad_de_medida`) REFERENCES `unidades_de_medida` (`id_unidad_medida`),
   ADD CONSTRAINT `lote_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_unidad_de_medida`) REFERENCES `unidades_de_medida` (`id_unidad_medida`),
+  ADD CONSTRAINT `producto_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
