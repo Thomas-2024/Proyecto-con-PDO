@@ -39,6 +39,6 @@
             )
         );
     }
-    //header("Location: PaginaPrincipal.php");
+    header("Location: PaginaPrincipal.php");
 
 ?>
