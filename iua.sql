@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 00:48:42
+-- Tiempo de generación: 15-09-2024 a las 17:11:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -319,15 +319,15 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('AL000011', 'Arroz Integral 1kg', 2700, 4, 1, '../imagenesdeproductos/Alimentos/arroz integral.jpg'),
 ('AL000012', 'Aceite de Oliva 500ml', 3200, 2, 1, '../imagenesdeproductos/Alimentos/aceite de oliva.jpg'),
 ('AL000013', 'Harina de Trigo 1kg', 1200, 4, 1, '../imagenesdeproductos/Alimentos/HarinaDeTrigo1-Kg.jpg'),
-('AS000002', 'Detergente Liquido 1L', 1800, 2, 2, '../imagenesdeproductos/aseo/DETERGENTE1L.jpg'),
-('AS000014', 'Limpiador Multiusos 500ml', 1500, 2, 2, '../imagenesdeproductos/aseo/Limpiador Multiusos 500ml.jpg'),
-('AS000015', 'Detergente en Polvo 1kg', 1600, 2, 2, '../imagenesdeproductos/aseo/detergente-rindex-10-b-limon-1-kg.jpg'),
-('AS000016', 'Desinfectante de Superficies 1L', 2000, 2, 2, '../imagenesdeproductos/aseo/Limoseptol-Advanced-HH-1L.jpg'),
-('BB000010', 'Panales Talla M', 1000, 3, 10, '../imagenesdeproductos/Productos para bebes/pa?ales-m.jpg'),
-('CK000003', 'Cuchara de Cocina Acero', 600, 3, 3, '../imagenesdeproductos/cocina/cuchara-arrocera-grande-de-35-cm.jpg'),
-('CK000017', 'Cuchillo Chef', 2500, 3, 3, '../imagenesdeproductos/cocina/cuchillo.jpg'),
-('CK000018', 'Olla Acero 3L', 5000, 3, 3, '../imagenesdeproductos/cocina/olla.jpg'),
-('CK000019', 'Juego de Cucharas Medidoras', 800, 3, 3, '../imagenesdeproductos/cocina/cucharas medidoras.jpg'),
+('AS000002', 'Detergente Liquido 1L', 1800, 2, 2, '../imagenesdeproductos/Productos de aseo/DETERGENTE1L.jpg'),
+('AS000014', 'Limpiador Multiusos 500ml', 1500, 2, 2, '../imagenesdeproductos/Productos de aseo/Limpiador Multiusos 500ml.jpg'),
+('AS000015', 'Detergente en Polvo 1kg', 1600, 2, 2, '../imagenesdeproductos/Productos de aseo/detergente-rindex-10-b-limon-1-kg.jpg'),
+('AS000016', 'Desinfectante de Superficies 1L', 2000, 2, 2, '../imagenesdeproductos/Productos de aseo/Limoseptol-Advanced-HH-1L.jpg'),
+('BB000010', 'Panales Talla M', 1000, 3, 10, '../imagenesdeproductos/Productos para bebes/panales-m.jpg'),
+('CK000003', 'Cuchara de Cocina Acero', 600, 3, 3, '../imagenesdeproductos/Articulos de cocina/cuchara-arrocera-grande-de-35-cm.jpg'),
+('CK000017', 'Cuchillo Chef', 2500, 3, 3, '../imagenesdeproductos/Articulos de cocina/cuchillo.jpg'),
+('CK000018', 'Olla Acero 3L', 5000, 3, 3, '../imagenesdeproductos/Articulos de cocina/olla.jpg'),
+('CK000019', 'Juego de Cucharas Medidoras', 800, 3, 3, '../imagenesdeproductos/Articulos de cocina/cucharas medidoras.jpg'),
 ('CN000001', 'cemento 50kg', 100000, 4, 20, '../imagenesdeproductos/Construccion/ cemento.PNG'),
 ('CS000009', 'Vitamina C 1000mg', 1500, 3, 9, '../imagenesdeproductos/Cuidado de la salud/Vitamina C 1000mg 60 Tabletas.jpg'),
 ('DT000004', 'Auriculares Bluetooth', 5500, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/audifonos.jpg'),
