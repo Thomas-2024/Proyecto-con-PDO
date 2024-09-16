@@ -116,7 +116,7 @@
         timerProgressBar: true,
         showConfirmButton: false,
         willClose: () => {
-        window.location.href = '../PaginaPrincipal/PaginaPrincipal.php'
+        window.location.href = '../PaginaPrincipal/Interfaz.php'
         }
         })
         </script>";

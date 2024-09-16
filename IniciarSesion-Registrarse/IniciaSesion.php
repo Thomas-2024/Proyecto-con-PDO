@@ -20,7 +20,7 @@
                 <div class="borde_animado"></div>
             </div>
             <div class="botonEncabezado">
-                <a class="boton" href="Registrarse.php" >Registrarse</a>
+                <a class="boton" href="FormularioRegistrarse.php" >Registrarse</a>
                 <div class="borde_animado"></div>
             </div>
         </div>
@@ -34,7 +34,7 @@
         <a onclick="ocultarContra()" id="Ver"><i class="fas fa-eye"></i></a>
         <a onclick="ocultarContra()" id="Ocultar"><i class="fas fa-eye-slash"></i></a>
         <input type="password" name="Contra" id="Contra"><br><br>
-        <a href="Registrarse.php" id="CrearCuenta">Crear una cuenta</a><br><br>
+        <a href="FormularioRegistrarse.php" id="CrearCuenta">Crear una cuenta</a><br><br>
         <input type="submit" value="Iniciar sesion" id="Iniciar-se"><br> <br>
     </form>
     </div>
