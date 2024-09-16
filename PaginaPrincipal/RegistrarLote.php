@@ -1,4 +1,5 @@
 <?php
+session_start();
 //Logica de registro de lotes y añadicion a las tablas respectivas de categorias y inventario
 //en caso de productos nuevos
     //Verifico si hay una categoria seleccionada
@@ -39,6 +40,6 @@
             )
         );
     }
-    header("Location: PaginaPrincipal.php");
-
+    $_SESSION['mostrar'] = "Gestionar Productos";
+    header("Location: Interfaz.php");
 ?>
