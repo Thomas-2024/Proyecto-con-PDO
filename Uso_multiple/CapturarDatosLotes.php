@@ -65,7 +65,7 @@
         }
         $Img_producto_Actual_Ext = strtolower(end($Img_producto_Ext));
     
-        $allowed = array("jpg", "jpeg", "png", "pdf");
+        $allowed = array("jpg", "jpeg", "png", "pdf", "webp");
         $dir_img_producto = capturar($Img_producto_Actual_Ext, $allowed, $Img_producto_Error, $Img_producto_Size, $Img_producto_TmpName, $Img_producto_Name, $nombre_categoria);
         
 
