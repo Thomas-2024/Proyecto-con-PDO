@@ -16,6 +16,13 @@
         if(isset($_SESSION['editado'])){
             unset($_SESSION['editado']); 
         }
+        if(isset($_SESSION['Id_usuario'])){
+            include_once "../Uso_multiple/Conexion.php";
+            $conexion=MiConexion();
+            $select = $conexion->prepare("SELECT E.id_empleado, R.rol_nombre, R.id_rol, E.Nombre, E.Edad, E.Correo, E.Contrasena, E.Telefono, E.Imagen_perfil FROM empleados E INNER JOIN rol R ON E.id_rol = R.id_rol WHERE id_empleado = ".$_SESSION['Id_usuario']);
+            $select->execute();
+            $usuario = $select->fetch(mode: PDO::FETCH_ASSOC);
+        }
     ?>
     <div class="navegador_lateral">
             <button class="boton_dropdown" id="menu1">
@@ -26,7 +33,8 @@
             <div class="contenido_dropdown" id="menu1">
                     <form action="" method="post">
                         <a href="CerrarSesion.php">Cerrar sesion</a>
-                        <a href="#">Actualizar datos</a>
+                        <input type="hidden" name="EditarDatosUsuario" value="<?php echo $_SESSION['Id_usuario']; ?>">
+                        <input type="submit" name="modificar_datos_usuario" value="Actualizar datos">
                         <?php if(isset($_SESSION['visualizarCrearRoles'])){
                             $visualizarCrearRoles = $_SESSION['visualizarCrearRoles'];
                             if($visualizarCrearRoles){?>
@@ -90,12 +98,12 @@
                 <img src="../ImagenesImportantes/Logo de la empresa.png" alt="IUA" class="imagenes">
             </div>
             <div class="usuario">
-                <p>Eres <?php echo $_SESSION['Rol'] ?></p>
+                <p>Eres <?php echo $usuario['rol_nombre'] ?></p>
                 <?php 
-                    if($_SESSION['Img_perfil'] == 'NULL' or $_SESSION['Img_perfil'] == ''){
+                    if($usuario['Imagen_perfil'] == 'NULL' or $usuario['Imagen_perfil'] == ''){
                         echo "<img src='"."../ImagenesImportantes/Imagen_de_usuario.png"."' class='imagenes'><span style='font-size: 10px'>No tienes foto <br> de perfil</span>";
                     }else {
-                        echo "<img src='".$_SESSION['Img_perfil']."' class='imagenes'>";
+                        echo "<img src='".$usuario['Imagen_perfil']."' class='imagenes'>";
                     }
                 ?>
             </div>
@@ -103,7 +111,7 @@
         <div class="contenido">
             <div class="Bienvenido">
                 <div class="capa2">
-                    <h1 class="titulo">Bienvenido(a) <?php echo $_SESSION['usuario'] ?></h1>
+                    <h1 class="titulo">Bienvenido(a) <?php echo $usuario['Nombre'] ?></h1>
                 </div>
             </div>
             <div id="contenido_correspondiente">
@@ -121,16 +129,17 @@
                 }
                 else if (isset($_POST['Editar'])){
                     $_SESSION['mostrar'] = 'Editar';
-                    $IDD = $_POST['Editar'];
+                    $_SESSION['editado'] = $_POST['Editar'];
                 }
                 else if (isset($_POST['gestionar_productos'])){
                     $_SESSION['mostrar'] = 'Gestionar Productos';
-                    if (isset($_POST['Editar'])){
-                        $IDD = $_POST['Editar'];
-                    }
                 }
                 else if (isset($_POST['registrar_lotes'])){
                     $_SESSION['mostrar'] = 'Registrar Entradas';
+                }
+                else if (isset($_POST['modificar_datos_usuario'])){
+                    $_SESSION['mostrar'] = 'Editar';
+                    $_SESSION['editado'] = $_POST['EditarDatosUsuario'];
                 }
                 if(isset($_SESSION["mostrar"])){
                     switch ($_SESSION['mostrar']) {
@@ -147,7 +156,7 @@
                             echo "No hay nada a mostrar aun";
                             break;
                         case 'Editar':
-                                include "ActualizarEmpleados.php";
+                                include "FormularioActualizarEmpleados.php";
                             break;
                         case 'Gestionar Productos':
                                 include "GestionarProductos.php";
@@ -156,6 +165,7 @@
                                 include "FormularioRegistrarLotes.php";
                             break;
                         default:
+                            echo "<script> document.getElementById('contenido_correspondiente').innerHTML = ''</script>";
                 }}
             ?>
     </div></div>
