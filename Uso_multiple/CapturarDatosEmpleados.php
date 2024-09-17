@@ -5,7 +5,9 @@
     $Edad = $_POST['Edad'];
     $Correo = $_POST['Correo'];
     $Contraseña = $_POST['Contraseña'];
-    $ConfirmarContraseña = $_POST['ConfirmarContraseña'];
+    if (isset($_POST['ConfirmarContraseña'])){
+        $ConfirmarContraseña = $_POST['ConfirmarContraseña'];
+    }
     $Telefono = $_POST['Telefono'];
      
     $Img_perfil = $_FILES['Img_perfil'];
