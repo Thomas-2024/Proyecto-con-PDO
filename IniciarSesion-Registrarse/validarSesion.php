@@ -68,6 +68,7 @@ session_start();
                     $_SESSION['usuario'] = $fila['Nombre'];
                     $_SESSION['Img_perfil'] = $fila['Imagen_perfil'];
                     $_SESSION['Rol'] = $fila['rol_nombre'];
+                    $_SESSION['Id_usuario'] = $fila['id_empleado'];
                     $_SESSION['mensaje'] = '1'; //Inicio sesion correctamente
                     header("Location: IniciaSesion.php");
                 }
