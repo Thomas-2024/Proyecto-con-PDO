@@ -17,7 +17,7 @@ function confirmacionEliminar(event, id) {
                     icon: "success",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "BorrarRegistros.php?id_empleado="+id;
+                        window.location.href = "BorrarEmpleados.php?id_empleado="+id;
                     }
                 });
             }
