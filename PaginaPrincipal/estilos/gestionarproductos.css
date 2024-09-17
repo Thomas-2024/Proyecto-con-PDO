@@ -1,3 +1,5 @@
+@font-face {font-family: 'ADELIA';src: url('../../ADELIA.otf');}
+
 h2{
     text-align: center;
     margin-top: 20px;
@@ -33,4 +35,34 @@ img {
 }
 .producto:hover{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.40);
+}
+
+.mensaje_producto {
+    color: white;
+    background-color: green;
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    animation: desaparecer 8s forwards;
+}
+
+@keyframes desaparecer {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.mensaje_producto p {
+    font-size: 20px;
+    margin-bottom: 10px;
 }

@@ -1,5 +1,14 @@
 <link rel="stylesheet" href="estilos/gestionarproductos.css">
-<?php 
+<?php
+    if(isset($_SESSION['mensaje_producto'])){
+        ?>
+        <div class="mensaje_producto">
+            <?php if(isset($_SESSION['mensaje_categoria'])){echo "<p>".$_SESSION['mensaje_categoria']."</p>";}?>
+            <?php echo "<p>".$_SESSION['mensaje_producto']."</p>";?>
+            <?php if(isset($_SESSION['mensaje_proveedor'])){echo "<p>".$_SESSION['mensaje_proveedor']."</p>";}?>
+        </div>
+        <?php
+    }
     include_once "../Uso_multiple/Conexion.php";    
     $conexion=MiConexion();
     $sentencia_categoria =$conexion->prepare("SELECT * from categoria");

@@ -13,7 +13,7 @@
         }
         $sql = "INSERT INTO rol (rol_nombre) VALUES ('$Nombre_Rol')";
         $Miconexion->exec($sql);
-        header("Location: ../PaginaPrincipal.php");
+        header("Location: ../Interfaz.php");
         echo "Rol creado correctamente";
         $Miconexion = null;
     }

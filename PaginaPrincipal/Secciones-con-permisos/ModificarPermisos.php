@@ -30,6 +30,6 @@
 
     $Update = $Miconexion->prepare("UPDATE rol SET Crear_Roles = '$Permiso_CrearRoles', Modificar_Permisos = '$Permiso_Modificar_Permisos', Menu_Administracion = '$Permiso_Menu_Admin' WHERE id_rol = '$Rol_Modificar'");
     $Update->execute();
-    header("Location: ../PaginaPrincipal.php");
+    header("Location: ../Interfaz.php");
     $Miconexion = null;
 ?>

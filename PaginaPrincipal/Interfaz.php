@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/PagPrincipal.css">
+    <link rel="stylesheet" href="estilos/Interfaz.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="estilos/tabla_empleados.css">
     <script src="ocultar.php"></script>
@@ -101,9 +101,9 @@
                 <p>Eres <?php echo $usuario['rol_nombre'] ?></p>
                 <?php 
                     if($usuario['Imagen_perfil'] == 'NULL' or $usuario['Imagen_perfil'] == ''){
-                        echo "<img src='"."../ImagenesImportantes/Imagen_de_usuario.png"."' class='imagenes'><span style='font-size: 10px'>No tienes foto <br> de perfil</span>";
+                        echo "<img src='"."../ImagenesImportantes/Imagen_de_usuario.png"."' class='imagenes' style='height: 100px'><span style='font-size: 10px'>No tienes foto <br> de perfil</span>";
                     }else {
-                        echo "<img src='".$usuario['Imagen_perfil']."' class='imagenes'>";
+                        echo "<img src='".$usuario['Imagen_perfil']."' class='imagenes' style='height: 100px'>";
                     }
                 ?>
             </div>
@@ -118,7 +118,7 @@
             <?php
                 if(isset($_POST['empleados'])){
                     $_SESSION['mostrar'] = $_POST['empleados'];
-                }else if (isset($_POST['modificar_permisos'])){
+                }else if (isset($_POST['modificar_permisos'])) {
                     $_SESSION['mostrar'] = $_POST['modificar_permisos'];
                 }
                 else if (isset($_POST['crea_rol'])){

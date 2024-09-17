@@ -1,7 +1,7 @@
 body{
     color: #fff;
 }
-@font-face {font-family: 'ADELIA';src: url('../../../ADELIA.otf');}
+@font-face {font-family: 'ADELIA';src: url('../../ADELIA.otf');}
 
 h2{
     text-align: center;
@@ -19,22 +19,23 @@ h2{
     text-align: center;
     font-size: 30px;
     border: #000 solid;
-    width: 600px;
-    height: 460px;
+    width: fit-content;
     border-radius: 20px;
     margin: auto;
     padding: 20px;
-    border-width: 10px;
-    box-shadow: 0 0 30px #a7e2a4, inset 0 0 30px #a7e2a4
+    border-width: 5px;
+    background-color: rgb(155, 155, 155, 0.3);
+    
 }       
 .tabla_modificar input[type="text"]{
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     background: transparent;
     outline: none;
     border-radius: 5px;
     padding: 0 15px;
     color: #000000;
+    background-color: #ffffff;
     font-size: 18px;
 }
 /*BOTON SUBMIT*/
@@ -60,7 +61,6 @@ h2{
     
     height: 20px;
     width: 120px;
-    
     font-size: 25px;
     border-radius: 10px;  
 }

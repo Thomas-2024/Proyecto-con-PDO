@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" type="text/css" href="estilos/edita.css">
+<link rel="stylesheet" type="text/css" href="estilos/editar.css">
 <?php
     include_once "../Uso_multiple/Conexion.php";
     $Mienlace=MiConexion();
@@ -21,6 +21,8 @@
                 Nombre: <input type='text' name='Nombre' value='<?php echo $fila['Nombre']?>'><br>
                 <?php if($_SESSION['editado'] != $_SESSION['Id_usuario']){ ?>
                     Rol: <select name='Rol' id="Rol" class='<?php echo $fila['id_rol']?>'><?php printf($lista_roles) ?></select><br>
+                <?php }else {?>
+                    <select name='Rol' id="Rol" class='<?php echo $fila['id_rol']?>' style="display: none;"><?php printf($lista_roles) ?></select><br>
                 <?php }; ?>
                 Edad: <input type='text' name='Edad' value='<?php echo $fila['Edad']?>'><br>
                 Correo: <input type='text' name='Correo' value='<?php echo $fila['Correo']?>'><br>

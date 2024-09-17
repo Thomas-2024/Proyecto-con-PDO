@@ -7,6 +7,9 @@ session_start();
     $conexion=MiConexion();
     include_once "../Uso_multiple/CapturarDatosLotes.php";
     //insertar todos los datos en la tabla de lotes
+    if(isset($_SESSION['mensaje_producto'])){
+        unset($_SESSION['mensaje_producto']);
+    }
     echo $nombre_producto;
     $sentencia_registrar_lote = $conexion->prepare("INSERT INTO lote VALUES (:id_lote, :id_producto, :id_estado, :id_categoria, :cantidad, :id_unidad_de_medida, :fecha_elaboracion, :fecha_expiracion, :id_proveedor, :id_ubicacion)");
     $sentencia_registrar_lote->execute(
@@ -31,6 +34,7 @@ session_start();
         $nueva_cantidad = $producto['Stock']+$cantidad;
         $actualizar_cantiodad = $conexion->prepare("UPDATE inventario SET Stock = :cantidad WHERE id_producto = :id_producto");
         $actualizar_cantiodad->execute(array(":cantidad"=>$nueva_cantidad, ":id_producto"=>$id_producto));
+        $_SESSION['mensaje_producto'] = "Se actualizo la cantidad del producto ".$nombre_producto." en el inventario a: <b>".$nueva_cantidad."</b>";
     }else {
         $sentencia_registrar =$conexion->prepare("INSERT INTO inventario (id_producto, Stock) VALUES (:id_producto, :Stock)");
         $sentencia_registrar->execute(
@@ -39,6 +43,7 @@ session_start();
                 ':Stock' => $cantidad,
             )
         );
+        $_SESSION['mensaje_producto'] = "Se agrego el nuevo producto llamado <b>".$nombre_producto."</b> al inventario con una cantidad inicial de: <b>".$cantidad."</b>";
     }
     $_SESSION['mostrar'] = "Gestionar Productos";
     header("Location: Interfaz.php");

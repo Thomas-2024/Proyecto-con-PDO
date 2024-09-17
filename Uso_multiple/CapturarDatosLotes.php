@@ -1,4 +1,10 @@
 <?php
+    if(isset($_SESSION['mensaje_categoria'])){
+        unset($_SESSION['mensaje_categoria']);
+    }
+    if(isset($_SESSION['mensaje_proveedor'])){
+        unset($_SESSION['mensaje_proveedor']);
+    }
     //se van a capturar los datos de id del lote, producto, categoria, estado, cantidad, unidad de medida, fecha de elaboracion, fecha de expiracion, proveedor y ubicacion
     function capturar($ext, $allow, $error, $size, $tmp, $name, $categoria_producto) {
         $Img_producto_Dest = "";
@@ -43,6 +49,7 @@
             $buscar_ultima_categoria->execute();
             $ultima_categoria = $buscar_ultima_categoria->fetch(PDO::FETCH_ASSOC);
             $id_categoria = $ultima_categoria['id_categoria'];
+            $_SESSION['mensaje_categoria'] = "Se agrego una nueva categoria llamada: <b>".$nombre_categoria."</b>";
         }else {
             $id_categoria = $_POST['Categoria'];
             $buscar_categoria = $conexion->prepare("SELECT * FROM categoria WHERE id_categoria = :id_categoria");
@@ -97,6 +104,7 @@
             ':id_categoria' => $id_categoria,
             ':Imagen' => $dir_img_producto
         ));
+        
     }else{
         $id_producto = $_POST['Producto'];
         $buscar_datos_producto = $conexion->prepare("SELECT * FROM producto WHERE id_producto = :id_producto");
@@ -116,6 +124,7 @@
         $proveedor = $_POST['Proveedor'];
         $insertar_proveedor = $conexion->prepare("INSERT INTO empresa_proveedora (empresa_proveedora) VALUES(:proveedor)");
         $insertar_proveedor->execute(array(":proveedor"=>$proveedor));
+        $_SESSION['mensaje_proveedor'] = "Se agrego una nueva empresa proveedora llamada: <b>".$proveedor."</b>";
 
         $buscar_ultimo_proveedor = $conexion->prepare("SELECT * FROM empresa_proveedora ORDER BY id_empresa_proveedora DESC LIMIT 1");
         $buscar_ultimo_proveedor->execute();
