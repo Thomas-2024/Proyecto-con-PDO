@@ -44,11 +44,6 @@
                             $visualizarModificarPermisos = $_SESSION['visualizarModificarPermisos'];
                             if($visualizarModificarPermisos){?>
                             <input type="submit" name="modificar_permisos" value="Modificar_Permisos"><br>
-                        <?php }}
-                            if(isset($_SESSION['visualizarMenuAdministracion'])){
-                            $visualizarMenuAdministracion = $_SESSION['visualizarMenuAdministracion'];
-                            if($visualizarMenuAdministracion){?>
-                            <input type="submit" name="menu_administracion" value="Menu_Administracion"><br>
                         <?php }}?>
                     </form>
             </div>
