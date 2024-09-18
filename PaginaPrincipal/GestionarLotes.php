@@ -53,7 +53,6 @@
                 <input type='submit' name='registrar_lotes_salida' value="Registrar Salidas">
             </form></td>
             <td><div onclick="document.getElementById('Editar<?php echo $lotes['id_lote']?>').submit()"><p class='btn__update' style='margin: 0px'>Editar</p><form style='display: none' action='' method='post' id="Editar<?php echo $lotes['id_lote']?>"><input type='text' name='EditarLote' value="<?php echo $lotes['id_lote']?>"></form></div></td>
-            <td><div><a href='eliminarLote.php'>Eliminar</a></div></td>
         </tr>
     <?php 
         endforeach;
