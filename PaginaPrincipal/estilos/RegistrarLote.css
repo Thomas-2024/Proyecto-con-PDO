@@ -1,5 +1,13 @@
-form {
-    display: flex;
-    flex-direction: column;
+
+.formulotes{
     width: fit-content;
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    background-color: #dddada;/*color div*/
+    padding: 20px;
+    place-items: center;
+    margin: auto;
+    box-shadow: 0 0 20px #969696;
+    font-family:Bahnschrift ; 
 }

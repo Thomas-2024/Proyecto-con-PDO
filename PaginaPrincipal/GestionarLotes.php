@@ -36,11 +36,13 @@
             <td><?php echo $lotes['id_proveedor']?></td>
             <td><?php echo $lotes['id_ubicacion']?></td>
             <td><form action="" method="post">
-                <input type='hidden' name='id_lote' value="<?php echo $lotes['id_lote']?>">
+                <input type='text' name='id_lote' value="<?php echo $lotes['id_lote']?>" style="display: none;">
+                <input type="text" name="unidad_medida" value="<?php echo $_POST['unidad_medida']?>" style="display: none;">
+                <input type="text" name="nombre_producto" value="<?php echo $_POST['nombre_producto']?>" style="display: none;">
                 <input type='submit' name='registrar_lotes_salida' value="Registrar Salidas">
             </form></td>
-            <td><a href='editarLote.php?id_lote=<?php echo $lotes['id_lote']?>&id_producto=<?php echo $lotes['id_producto']?>'>Editar</a></td>
-            <td><a href='eliminarLote.php?id_lote=<?php echo $lotes['id_lote']?>&id_producto=<?php echo $lotes['id_producto']?>'>Eliminar</a></td>
+            <td><div onclick="document.getElementById('Editar<?php echo $lotes['id_lote']?>').submit()"><p class='btn__update' style='margin: 0px'>Editar</p><form style='display: none' action='' method='post' id="Editar<?php echo $lotes['id_lote']?>"><input type='text' name='EditarLote' value="<?php echo $lotes['id_lote']?>"></form></div></td>
+            <td><div><a href='eliminarLote.php'>Eliminar</a></div></td>
         </tr>
     <?php 
         endforeach;

@@ -1,0 +1,26 @@
+.rol{
+    width: max-content;
+    text-align: center;
+    background-color: #dddada;/*color div*/
+    padding: 20px;
+    place-items: center;
+    margin: auto;
+    box-shadow: 0 0 20px #969696; 
+    font-family: 'Arial', sans-serif;
+}
+.rol input[type="submit"] {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #adadad;
+    box-sizing: border-box;
+} 
+#sub:hover{
+    background-color: #b1b1b1;
+    border: 1px solid #000000;
+}
+a{
+    font-family:Bahnschrift ;
+    font-size: large;
+}

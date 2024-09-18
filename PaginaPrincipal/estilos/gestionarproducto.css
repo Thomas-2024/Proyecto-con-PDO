@@ -1,0 +1,82 @@
+@font-face {font-family: 'ADELIA';src: url('../../ADELIA.otf');}
+
+h2{
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+}
+.categoria{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    }
+.producto:hover img{
+        transform: scale(1.2);
+        overflow: hidden;
+        transition: all .5s;
+    }
+.producto{
+    border-radius: 10px;
+    background-color:  rgba(0, 170, 255, 0.333);
+    border-width: 10px; /* Ancho del borde de 10 píxeles */
+    border-style: solid; /* Estilo de borde sólido */
+    border-color: rgba(8, 42, 59, 0.333); /* Color del borde */
+    text-align: center;
+    padding: 30px;
+    
+}
+.producto:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.40);
+}
+.categoria input[type="submit"]{
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    background-color: rgba(161, 161, 161, 0.712);
+}
+#gestionar:hover{
+    background-color: #1b50e0c2;
+    border: 1px solid #fffafa;
+}
+.mensaje_producto {
+    color: white;
+    background-color: green;
+    text-align: center;
+    margin-top: 10px;
+    padding: 20px;
+    animation: desaparecer 8s forwards;
+}
+
+@keyframes desaparecer {
+    0% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.mensaje_producto p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}

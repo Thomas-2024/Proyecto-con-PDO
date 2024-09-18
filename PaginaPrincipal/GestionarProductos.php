@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="estilos/gestionarproductos.css">
+<link rel="stylesheet" href="estilos/gestionarproducto.css">
 <?php
     if(isset($_SESSION['mensaje_producto'])){
         ?>
@@ -44,8 +44,9 @@
                 <span><?php echo $producto['Stock']." ";?></span><span><?php echo $producto['unidad_medida']?></span>
                 <form action="" method="post">
                     <input type="text" name="id_producto" value="<?php echo $producto['id_producto']?>" style="display: none;">
+                    <input type="text" name="unidad_medida" value="<?php echo $producto['unidad_medida']?>" style="display: none;">
                     <input type="text" name="nombre_producto" value="<?php echo $producto['nombre_producto']?>" style="display: none;">
-                    <input type="submit" name="gestionar_lotes" value="Gestionar Lotes del Producto">
+                    <input type="submit" name="gestionar_lotes" value="Gestionar Lotes del Producto" id="gestionar">
                 </form>
             </div>
         </div>

@@ -141,6 +141,10 @@
                     $_SESSION['mostrar'] = 'Editar';
                     $_SESSION['editado'] = $_POST['EditarDatosUsuario'];
                 }
+                else if (isset($_POST['EditarLote'])){
+                    $_SESSION['mostrar'] = 'EditarLote';
+                    $_SESSION['editadoLote'] = $_POST['EditarLote'];
+                }
                 if(isset($_SESSION["mostrar"])){
                     switch ($_SESSION['mostrar']) {
                         case 'Gestionar Empleados':
@@ -169,6 +173,9 @@
                             break;
                         case 'Gestionar Lotes':
                             include "GestionarLotes.php";
+                            break;
+                        case 'EditarLote':
+                            include "FormularioActualizarDatosLotes.php";
                             break;
                         default:
                             echo "<script> document.getElementById('contenido_correspondiente').innerHTML = ''</script>";

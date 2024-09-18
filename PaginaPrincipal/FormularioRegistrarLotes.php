@@ -1,7 +1,7 @@
-
 <link rel="stylesheet" href="estilos/RegistrarLote.css">
 
 <form action="RegistrarLote.php" method="post" enctype="multipart/form-data">
+    <div class="formulotes">
     <label for="Id_Lote">Identifiacion del lote: </label>
     <input type="text" name="Id_Lote" id="Id_Lote">
     Producto Nuevo: <input type="radio" name="opcion_producto" id="" value="nuevo" onchange="Mostrar(this.value, 'producto')">
@@ -78,8 +78,11 @@
             printf($lista_ubicacionesdisponibles);
        ?>
     </select>
-    Imagen de perfil:<input type="file" name="Img_producto" id="Img_producto" disabled style="display: none;">
+    <div id="Img_producto_contenedor" style="display: none;">
+    Imagen del producto:<input type="file" name="Img_producto" id="Img_producto" disabled>
+    </div>
     <input type="submit" name="RegistrarLote" value="Registrar Lote">
+    </div>
 </form>
 <script>
     function Mostrar(valor, opcion){
@@ -97,7 +100,7 @@
                 document.getElementsByName("opcion_categoria")[1].disabled = false;
                 document.getElementById("contenedor_unidad_de_medida").style.display="block";
                 document.getElementById("unidad_de_medida").disabled = false;
-                document.getElementById("Img_producto").style.display="block";
+                document.getElementById("Img_producto_contenedor").style.display="block";
                 document.getElementById("Img_producto").disabled = false;
             }
             if(opcion == "categoria"){
@@ -117,7 +120,7 @@
                 document.getElementById("contenedor_categoria").style.display="none";
                 document.getElementsByName("opcion_categoria")[0].disabled = true;
                 document.getElementsByName("opcion_categoria")[1].disabled = true;
-                document.getElementById("Img_producto").style.display="none";
+                document.getElementById("Img_producto_contenedor").style.display="none";
                 document.getElementById("Img_producto").disabled = true;
             }
             if(opcion == "categoria"){
