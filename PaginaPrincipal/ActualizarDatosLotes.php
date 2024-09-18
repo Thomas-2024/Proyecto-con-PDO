@@ -25,7 +25,7 @@ session_start();
         $buscar_producto_antiguo = $Miconexion->prepare("SELECT * FROM inventario WHERE id_producto = :id_producto");
         $buscar_producto_antiguo->execute(array(":id_producto"=>$Producto_Antiguo));
         $producto_antiguo = $buscar_producto_antiguo->fetch(mode: PDO::FETCH_ASSOC);
-
+        
         $nueva_cantidad = $producto['Stock']+$cantidad;
         $actualizar_cantiodad = $Miconexion->prepare("UPDATE inventario SET Stock = :cantidad WHERE id_producto = :id_producto");
         $actualizar_cantiodad->execute(array(":cantidad"=>$nueva_cantidad, ":id_producto"=>$Producto));

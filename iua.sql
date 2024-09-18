@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2024 a las 20:32:27
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 18-09-2024 a las 22:32:51
+-- Versión del servidor: 10.6.7-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
   `categoria` varchar(50) DEFAULT NULL,
   `abreviatura` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -54,35 +54,6 @@ INSERT INTO `categoria` (`id_categoria`, `categoria`, `abreviatura`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contactos_proveedores`
---
-
-CREATE TABLE `contactos_proveedores` (
-  `id_contacto` tinyint(4) NOT NULL,
-  `id_empresa_prov` tinyint(4) DEFAULT NULL,
-  `Nombre` varchar(45) DEFAULT NULL,
-  `Apellido` varchar(20) DEFAULT NULL,
-  `N_Contacto` smallint(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `detalle_pedido`
---
-
-CREATE TABLE `detalle_pedido` (
-  `id_detalle` varchar(20) NOT NULL,
-  `id_producto` varchar(25) DEFAULT NULL,
-  `Fecha_entrega` datetime DEFAULT NULL,
-  `id_empleado` varchar(20) DEFAULT NULL,
-  `id_unidad_medida` varchar(20) DEFAULT NULL,
-  `cantidad` smallint(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `empleados`
 --
 
@@ -95,15 +66,16 @@ CREATE TABLE `empleados` (
   `Contrasena` varchar(15) DEFAULT NULL,
   `Telefono` varchar(50) DEFAULT NULL,
   `Imagen_perfil` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `empleados`
 --
 
 INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `Contrasena`, `Telefono`, `Imagen_perfil`) VALUES
-('0000001', 1, 'Administrador', '', 'administrador@gmail.com', 'admin2024', '', '../Images/Trimoto de juguete.JPG'),
-('1028485270', 5, 'Thomas David Olaya Robayo', '45', 'tomwork@gmail.com', 'thomas24*', '3054608636', '../Images/pensar.jpg');
+('0000001', 1, 'Administrador', '', 'administrador@gmail.com', 'admin2024', '', '../Images/WhatsApp Image 2024-08-16 at 6.37.10 PM.jpeg'),
+('1028485270', 6, 'Thomas David Olaya', '45', 'tomwork@gmail.com', 'thomas24*', '3054608636', '../Images/pensar.jpg'),
+('123456786', 3, 'Karen', '45', 'karenworked@gmail.com', 'karen24', '3054897890', '');
 
 -- --------------------------------------------------------
 
@@ -114,7 +86,7 @@ INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `C
 CREATE TABLE `empresa_proveedora` (
   `id_empresa_proveedora` int(11) NOT NULL,
   `empresa_proveedora` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `empresa_proveedora`
@@ -134,7 +106,8 @@ INSERT INTO `empresa_proveedora` (`id_empresa_proveedora`, `empresa_proveedora`)
 (14, 'Entretenimiento a lo Grande'),
 (15, 'Construcciones Fantasticas'),
 (16, 'SuperBots SAS'),
-(17, 'Entretenimiento Supremo SAS');
+(17, 'Entretenimiento Supremo SAS'),
+(18, 'Juguetes Maximo');
 
 -- --------------------------------------------------------
 
@@ -145,7 +118,7 @@ INSERT INTO `empresa_proveedora` (`id_empresa_proveedora`, `empresa_proveedora`)
 CREATE TABLE `estado` (
   `id_estado` int(11) NOT NULL,
   `Estado` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `estado`
@@ -166,14 +139,14 @@ CREATE TABLE `inventario` (
   `id_producto` varchar(8) NOT NULL,
   `Stock` mediumint(9) DEFAULT NULL,
   `registro` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `inventario`
 --
 
 INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
-('AL000001', 9900, 1),
+('AL000001', 3000, 1),
 ('AL000011', 35086, 2),
 ('AL000012', 15, 3),
 ('AL000013', 70, 4),
@@ -210,7 +183,8 @@ INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
 ('SC000032', 3000, 35),
 ('CN000001', 1700, 36),
 ('JG000003', 1700, 37),
-('JG000004', 500, 38);
+('JG000004', 500, 38),
+('JG000005', 34000, 39);
 
 -- --------------------------------------------------------
 
@@ -229,7 +203,7 @@ CREATE TABLE `lote` (
   `Fecha_Expiracion` varchar(20) DEFAULT NULL,
   `id_proveedor` int(11) DEFAULT NULL,
   `id_ubicacion` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `lote`
@@ -276,10 +250,11 @@ INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cant
 ('L041', 'SA000026', 1, 5, 3700, 3, '', '', 5, 15),
 ('L042', 'SA000027', 1, 5, 35000, 3, '', '', 5, 16),
 ('L043', 'SA000028', 1, 5, 35000, 3, '', '', 5, 17),
-('L048', 'AL000001', 1, 1, 2900, 4, '2024-09-05', '2025-05-23', 1, 19),
+('L048', 'AL000001', 1, 1, 833, 4, '2024-09-05', '2025-05-23', 3, 19),
 ('L049', 'AL000011', 1, 1, 35000, 4, '2024-09-03', '2025-07-19', 1, 18),
 ('L055', 'JG000004', 1, 19, 500, 3, '2024-09-03', '', 17, 20),
-('L056', 'AL000001', 2, 1, 7000, 4, '2024-05-11', '2025-01-31', 3, 23);
+('L056', 'AL000001', 2, 1, 3000, 4, '2024-05-11', '2025-01-31', 3, 23),
+('L078', 'JG000005', 2, 19, 34000, 3, '2024-09-04', '', 18, 21);
 
 -- --------------------------------------------------------
 
@@ -292,19 +267,7 @@ CREATE TABLE `pedido` (
   `id_detalle` varchar(20) DEFAULT NULL,
   `Fecha_peticion` varchar(20) DEFAULT NULL,
   `id_empresa` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `personal`
---
-
-CREATE TABLE `personal` (
-  `registro` smallint(6) DEFAULT NULL,
-  `id_empleado` varchar(12) NOT NULL,
-  `id_rol` varchar(14) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -319,7 +282,7 @@ CREATE TABLE `producto` (
   `id_unidad_de_medida` int(11) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
   `Imagen` varchar(100) NOT NULL DEFAULT 'nada'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -349,6 +312,7 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('JG000002', 'Camion de juguete con 3 pasajeros', 2100000, 3, 19, 'nada'),
 ('JG000003', 'Trimoto con 1 pasajero', 950000, 3, 19, '../imagenesdeproductos/Juguetes/ Trimoto de juguete.JPG'),
 ('JG000004', 'Carro de juguete con 4 pasajeros', 2350000, 3, 19, '../imagenesdeproductos/Juguetes/ Trimoto de juguete.JPG'),
+('JG000005', 'Juguete de tractomula', 345000, 3, 19, '../imagenesdeproductos/Juguetes/ WhatsApp Image 2024-08-16 at 6.37.10 PM.jpeg'),
 ('MB000008', 'Silla Ergonomica', 15000, 3, 8, '../imagenesdeproductos/Muebles/Silla Ergonomica de Oficina.jpg'),
 ('PP000006', 'Guantes de Proteccion Nitrilo', 1200, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Guantes de Proteccion Nitrilo.jpg'),
 ('PP000026', 'Mascarilla de Proteccion', 1800, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Mascara de Proteccion.jpg'),
@@ -370,17 +334,6 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedor_empresa`
---
-
-CREATE TABLE `proveedor_empresa` (
-  `id_empresa_prov` tinyint(4) DEFAULT NULL,
-  `id_contacto` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `rol`
 --
 
@@ -390,7 +343,7 @@ CREATE TABLE `rol` (
   `Modificar_permisos` varchar(10) DEFAULT 'NO',
   `Menu_administracion` varchar(10) DEFAULT 'NO',
   `id_rol` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -414,7 +367,7 @@ INSERT INTO `rol` (`rol_nombre`, `Crear_Roles`, `Modificar_permisos`, `Menu_admi
 CREATE TABLE `ubicacion` (
   `id_ubicacion` int(11) NOT NULL,
   `Modulo_Estante` varchar(2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `ubicacion`
@@ -511,7 +464,7 @@ INSERT INTO `ubicacion` (`id_ubicacion`, `Modulo_Estante`) VALUES
 CREATE TABLE `unidades_de_medida` (
   `id_unidad_medida` int(11) NOT NULL,
   `unidad_medida` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `unidades_de_medida`
@@ -524,19 +477,6 @@ INSERT INTO `unidades_de_medida` (`id_unidad_medida`, `unidad_medida`) VALUES
 (4, 'kilogramos'),
 (5, 'gramos');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ventas_hoy`
---
-
-CREATE TABLE `ventas_hoy` (
-  `id_ventas` smallint(6) NOT NULL,
-  `id_producto` varchar(25) DEFAULT NULL,
-  `Fecha_Salida` varchar(20) DEFAULT NULL,
-  `ventas` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Índices para tablas volcadas
 --
@@ -546,12 +486,6 @@ CREATE TABLE `ventas_hoy` (
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
-
---
--- Indices de la tabla `detalle_pedido`
---
-ALTER TABLE `detalle_pedido`
-  ADD PRIMARY KEY (`id_detalle`);
 
 --
 -- Indices de la tabla `empleados`
@@ -597,12 +531,6 @@ ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id_pedido`);
 
 --
--- Indices de la tabla `personal`
---
-ALTER TABLE `personal`
-  ADD PRIMARY KEY (`id_empleado`);
-
---
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -629,12 +557,6 @@ ALTER TABLE `unidades_de_medida`
   ADD PRIMARY KEY (`id_unidad_medida`);
 
 --
--- Indices de la tabla `ventas_hoy`
---
-ALTER TABLE `ventas_hoy`
-  ADD PRIMARY KEY (`id_ventas`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -648,7 +570,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `empresa_proveedora`
 --
 ALTER TABLE `empresa_proveedora`
-  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -660,7 +582,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
