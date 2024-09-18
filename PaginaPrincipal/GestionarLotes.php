@@ -14,8 +14,7 @@
     INNER JOIN categoria C ON L.id_categoria = C.id_categoria
     INNER JOIN unidades_de_medida U ON L.id_unidad_de_medida = U.id_unidad_medida 
     INNER JOIN empresa_proveedora E ON L.id_proveedor = E.id_empresa_proveedora
-    INNER JOIN ubicacion T ON L.id_ubicacion = T.id_ubicacion 
-    WHERE id_producto = :id_producto");
+    INNER JOIN ubicacion T ON L.id_ubicacion = T.id_ubicacion WHERE L.id_producto = :id_producto");
     $sentencia_lotes->execute(
         array(':id_producto' => $producto_lotes
     ));
@@ -40,7 +39,7 @@
     ?>
         <tr>
             <td><?php echo $lotes['id_lote']?></td>
-            <td><?php echo $lotes['estado']?></td>
+            <td><?php echo $lotes['id_estado']?></td>
             <td><?php echo $lotes['cantidad_productos']?></td>
             <td><?php echo $lotes['unidad_medida']?></td>
             <td><?php echo $lotes['Fecha_Elaboracion']?></td>
