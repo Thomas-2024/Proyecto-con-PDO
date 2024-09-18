@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 17:11:18
+-- Tiempo de generación: 18-09-2024 a las 20:32:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -89,7 +89,7 @@ CREATE TABLE `detalle_pedido` (
 CREATE TABLE `empleados` (
   `id_empleado` varchar(12) NOT NULL,
   `id_rol` int(11) DEFAULT NULL,
-  `Nombre` varchar(20) DEFAULT NULL,
+  `Nombre` varchar(80) DEFAULT NULL,
   `Edad` varchar(3) DEFAULT NULL,
   `Correo` varchar(50) DEFAULT NULL,
   `Contrasena` varchar(15) DEFAULT NULL,
@@ -102,7 +102,8 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `Contrasena`, `Telefono`, `Imagen_perfil`) VALUES
-('0000001', 1, 'Administrador', '', 'administrador@gmail.com', 'admin2024', '', '');
+('0000001', 1, 'Administrador', '', 'administrador@gmail.com', 'admin2024', '', '../Images/Trimoto de juguete.JPG'),
+('1028485270', 5, 'Thomas David Olaya Robayo', '45', 'tomwork@gmail.com', 'thomas24*', '3054608636', '../Images/pensar.jpg');
 
 -- --------------------------------------------------------
 
@@ -131,7 +132,9 @@ INSERT INTO `empresa_proveedora` (`id_empresa_proveedora`, `empresa_proveedora`)
 (9, 'Salud Integral Ltda.'),
 (10, 'Bebe Feliz S.A.'),
 (14, 'Entretenimiento a lo Grande'),
-(15, 'Construcciones Fantasticas');
+(15, 'Construcciones Fantasticas'),
+(16, 'SuperBots SAS'),
+(17, 'Entretenimiento Supremo SAS');
 
 -- --------------------------------------------------------
 
@@ -170,42 +173,44 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
-('AL000001', 3100, 1),
-('AL000011', 100, 2),
-('AL000012', 60, 3),
-('AL000013', 80, 4),
-('AS000002', 80, 5),
-('AS000014', 90, 6),
-('AS000015', 70, 7),
-('AS000016', 85, 8),
-('BB000010', 90, 9),
-('CK000003', 120, 10),
+('AL000001', 9900, 1),
+('AL000011', 35086, 2),
+('AL000012', 15, 3),
+('AL000013', 70, 4),
+('AS000002', 50, 5),
+('AS000014', 40, 6),
+('AS000015', 30, 7),
+('AS000016', 45, 8),
+('BB000010', 100, 9),
+('CK000003', 50, 10),
 ('CK000017', 75, 11),
 ('CK000018', 40, 12),
 ('CK000019', 150, 13),
-('CS000009', 70, 14),
-('DT000004', 25, 15),
+('CS000009', 150, 14),
+('DT000004', 30, 15),
 ('DT000020', 35, 16),
 ('DT000021', 50, 17),
-('DT000022', 20, 18),
+('DT000022', 15, 18),
 ('JG000001', 500, 19),
 ('MB000008', 15, 20),
-('PP000006', 100, 21),
-('PP000026', 80, 22),
-('PP000027', 60, 23),
-('PP000028', 40, 24),
-('SA000005', 50, 25),
-('SA000023', 70, 26),
-('SA000024', 60, 27),
-('SA000025', 55, 28),
+('PP000006', 50, 21),
+('PP000026', 40, 22),
+('PP000027', 30, 23),
+('PP000028', 10, 24),
+('SA000005', 40, 25),
+('SA000023', 30, 26),
+('SA000024', 25, 27),
+('SA000025', 30, 28),
 ('SA000028', 35000, 29),
-('SC000007', 200, 30),
-('SC000029', 250, 31),
-('SC000030', 180, 32),
-('SC000031', 150, 33),
+('SC000007', 100, 30),
+('SC000029', 150, 31),
+('SC000030', 120, 32),
+('SC000031', 90, 33),
 ('JG000002', 250, 34),
 ('SC000032', 3000, 35),
-('CN000001', 4000, 36);
+('CN000001', 1700, 36),
+('JG000003', 1700, 37),
+('JG000004', 500, 38);
 
 -- --------------------------------------------------------
 
@@ -231,9 +236,9 @@ CREATE TABLE `lote` (
 --
 
 INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cantidad_productos`, `id_unidad_de_medida`, `Fecha_Elaboracion`, `Fecha_Expiracion`, `id_proveedor`, `id_ubicacion`) VALUES
-('L001', 'AL000001', 1, 1, 100, 1, '2024-08-01', '2025-08-01', 1, 1),
-('L002', 'AL000011', 1, 1, 80, 1, '2024-08-05', '2025-08-05', 1, 1),
-('L003', 'AL000012', 1, 1, 60, 2, '2024-08-10', '2025-08-10', 2, 2),
+('L001', 'AL000011', 1, 1, 2, 4, '2024-08-01', '2025-08-01', 1, 22),
+('L002', 'AL000011', 1, 1, 80, 4, '2024-08-05', '2025-08-05', 1, 1),
+('L003', 'AL000012', 1, 1, 15, 2, '2024-08-10', '2025-08-10', 2, 2),
 ('L004', 'AL000013', 1, 1, 70, 1, '2024-08-15', '2025-08-15', 1, 1),
 ('L005', 'AS000002', 1, 2, 50, 2, '2024-08-20', '2025-08-20', 2, 2),
 ('L006', 'AS000014', 1, 2, 40, 2, '2024-08-25', '2025-08-25', 2, 2),
@@ -253,7 +258,7 @@ INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cant
 ('L020', 'PP000006', 1, 3, 50, 3, '2024-11-01', '2025-11-01', 6, 6),
 ('L021', 'PP000026', 1, 3, 40, 3, '2024-11-05', '2025-11-05', 6, 6),
 ('L022', 'PP000027', 1, 3, 30, 3, '2024-11-10', '2025-11-10', 6, 6),
-('L023', 'PP000028', 1, 3, 20, 3, '2024-11-15', '2025-11-15', 6, 6),
+('L023', 'PP000028', 1, 3, 10, 3, '2024-11-15', '2025-11-15', 6, 6),
 ('L024', 'SA000005', 1, 5, 40, 5, '2024-11-20', '2025-11-20', 7, 7),
 ('L025', 'SA000023', 1, 5, 30, 5, '2024-11-25', '2025-11-25', 7, 7),
 ('L026', 'SA000024', 1, 5, 25, 5, '2024-12-01', '2025-12-01', 7, 7),
@@ -265,10 +270,16 @@ INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cant
 ('L032', 'JG000001', 1, 19, 500, 3, '2024-09-01', '', 14, 10),
 ('L033', 'JG000002', 1, 19, 250, 3, '2024-09-02', '', 14, 9),
 ('L034', 'SC000032', 1, 7, 3000, 3, '2024-09-03', '', 7, 11),
-('L035', 'CN000001', 1, 20, 4000, 4, '2024-09-02', '', 15, 12),
+('L035', 'CN000001', 1, 20, 1700, 4, '2024-09-02', '', 15, 12),
+('L037', 'JG000003', 2, 19, 700, 3, '2024-09-05', '', 16, 13),
+('L038', 'JG000003', 1, 19, 500, 3, '2024-09-04', '', 14, 14),
 ('L041', 'SA000026', 1, 5, 3700, 3, '', '', 5, 15),
 ('L042', 'SA000027', 1, 5, 35000, 3, '', '', 5, 16),
-('L043', 'SA000028', 1, 5, 35000, 3, '', '', 5, 17);
+('L043', 'SA000028', 1, 5, 35000, 3, '', '', 5, 17),
+('L048', 'AL000001', 1, 1, 2900, 4, '2024-09-05', '2025-05-23', 1, 19),
+('L049', 'AL000011', 1, 1, 35000, 4, '2024-09-03', '2025-07-19', 1, 18),
+('L055', 'JG000004', 1, 19, 500, 3, '2024-09-03', '', 17, 20),
+('L056', 'AL000001', 2, 1, 7000, 4, '2024-05-11', '2025-01-31', 3, 23);
 
 -- --------------------------------------------------------
 
@@ -336,6 +347,8 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('DT000022', 'Camara de Seguridad Wifi', 8000, 3, 4, '../imagenesdeproductos/Dispositivos tecnologicos/Camara de Seguridad Wi-Fi.jpg'),
 ('JG000001', 'Carro de juguete de 2 pasajeros', 1350000, 3, 19, 'nada'),
 ('JG000002', 'Camion de juguete con 3 pasajeros', 2100000, 3, 19, 'nada'),
+('JG000003', 'Trimoto con 1 pasajero', 950000, 3, 19, '../imagenesdeproductos/Juguetes/ Trimoto de juguete.JPG'),
+('JG000004', 'Carro de juguete con 4 pasajeros', 2350000, 3, 19, '../imagenesdeproductos/Juguetes/ Trimoto de juguete.JPG'),
 ('MB000008', 'Silla Ergonomica', 15000, 3, 8, '../imagenesdeproductos/Muebles/Silla Ergonomica de Oficina.jpg'),
 ('PP000006', 'Guantes de Proteccion Nitrilo', 1200, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Guantes de Proteccion Nitrilo.jpg'),
 ('PP000026', 'Mascarilla de Proteccion', 1800, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Mascara de Proteccion.jpg'),
@@ -346,6 +359,7 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('SA000024', 'Pechuga de Pavo 300g', 2700, 5, 5, '../imagenesdeproductos/Salsamentarias/Pechuga de Pavo 300g.jpg'),
 ('SA000025', 'Chorizo Espanol 250g', 2900, 5, 5, '../imagenesdeproductos/Salsamentarias/chorizo.png'),
 ('SA000028', 'Jamon 45 tajadas', 34000, 3, 5, '../imagenesdeproductos/Salsamentarias/Jamon-45-tajadas.jpg'),
+('SA000029', 'Jamon frances 50 tajadas', 67000, 3, 5, '../imagenesdeproductos/Salsamentarias/ cotizacion.png'),
 ('SC000007', 'Cuaderno Rayado 100 Hojas', 400, 3, 7, '../imagenesdeproductos/Articulos escolares/Cuaderno Rayado 100 Hojas.jpg'),
 ('SC000029', 'Boligrafo de Color', 300, 3, 7, '../imagenesdeproductos/Articulos escolares/Boligrafo de Color.jpg'),
 ('SC000030', 'Marcadores Textiles', 500, 3, 7, '../imagenesdeproductos/Articulos escolares/marcadortextilfaber1.jpg'),
@@ -388,7 +402,8 @@ INSERT INTO `rol` (`rol_nombre`, `Crear_Roles`, `Modificar_permisos`, `Menu_admi
 ('Coordinador', 'NO', 'NO', 'NO', 3),
 ('Jefe de almacen', 'NO', 'NO', 'NO', 4),
 ('Personal de binestar', 'NO', 'NO', 'SI', 5),
-('Ejecutivo', 'NO', 'NO', 'NO', 6);
+('Ejecutivo', 'NO', 'NO', 'NO', 6),
+('Gerente de bienestar', 'NO', 'NO', 'NO', 7);
 
 -- --------------------------------------------------------
 
@@ -633,7 +648,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `empresa_proveedora`
 --
 ALTER TABLE `empresa_proveedora`
-  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_empresa_proveedora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -645,13 +660,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `unidades_de_medida`
