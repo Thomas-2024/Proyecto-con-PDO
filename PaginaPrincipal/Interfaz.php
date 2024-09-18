@@ -53,15 +53,6 @@
                     </form>
             </div>
             <button class="boton_dropdown" id="menu1">
-                <i class="far fa-calendar-alt"></i>
-                <span>Pedidos</span>
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-            <div class="contenido_dropdown" id="menu1">
-                    <a href="#">Estadisticas</a>
-                    <a href="#">Proveedores</a>
-            </div>
-            <button class="boton_dropdown" id="menu1">
             <i class="fas fa-box-open"></i>
             <span>Productos</span>
             <i class="fa-solid fa-chevron-right"></i>
@@ -70,7 +61,7 @@
             <div class="contenido_dropdown">
                 <form action="" method="post">
                     <input type="submit" name="gestionar_productos" value="Gestionar Productos">
-                    <input type="submit" name="registrar_lotes" value="Registrar Entradas">
+                    <input type="submit" name="registrar_lotes" value="Registras Entradas de Productos">
                 </form>
             </div>
             <?php
@@ -137,6 +128,15 @@
                 else if (isset($_POST['registrar_lotes'])){
                     $_SESSION['mostrar'] = 'Registrar Entradas';
                 }
+                else if (isset($_POST['registrar_lotes_salida'])){
+                    $_SESSION['mostrar'] = 'Registrar Salidas';
+                }
+                else if (isset($_POST['gestionar_lotes'])){
+                    $_SESSION['mostrar'] = 'Gestionar Lotes';
+                }
+                else if (isset($_POST['gestionar_'])){
+                    $_SESSION['mostrar'] = 'Registrar Salidas';
+                }
                 else if (isset($_POST['modificar_datos_usuario'])){
                     $_SESSION['mostrar'] = 'Editar';
                     $_SESSION['editado'] = $_POST['EditarDatosUsuario'];
@@ -163,6 +163,12 @@
                             break;
                         case 'Registrar Entradas':
                                 include "FormularioRegistrarLotes.php";
+                            break;
+                        case 'Registrar Salidas':
+                            include "FormularioRegistrarLotesSalidas.php";
+                            break;
+                        case 'Gestionar Lotes':
+                            include "GestionarLotes.php";
                             break;
                         default:
                             echo "<script> document.getElementById('contenido_correspondiente').innerHTML = ''</script>";

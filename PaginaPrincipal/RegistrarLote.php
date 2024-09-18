@@ -34,7 +34,7 @@ session_start();
         $nueva_cantidad = $producto['Stock']+$cantidad;
         $actualizar_cantiodad = $conexion->prepare("UPDATE inventario SET Stock = :cantidad WHERE id_producto = :id_producto");
         $actualizar_cantiodad->execute(array(":cantidad"=>$nueva_cantidad, ":id_producto"=>$id_producto));
-        $_SESSION['mensaje_producto'] = "Se actualizo la cantidad del producto ".$nombre_producto." en el inventario a: <b>".$nueva_cantidad."</b>";
+        $_SESSION['mensaje_producto'] = "Se registraron <b>".$cantidad."</b> entradas del producto <b>".$nombre_producto."</b><br> y ahora la cantidad del inventario es de: <b>".$nueva_cantidad."</b>";
     }else {
         $sentencia_registrar =$conexion->prepare("INSERT INTO inventario (id_producto, Stock) VALUES (:id_producto, :Stock)");
         $sentencia_registrar->execute(

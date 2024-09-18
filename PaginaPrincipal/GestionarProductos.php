@@ -3,11 +3,12 @@
     if(isset($_SESSION['mensaje_producto'])){
         ?>
         <div class="mensaje_producto">
-            <?php if(isset($_SESSION['mensaje_categoria'])){echo "<p>".$_SESSION['mensaje_categoria']."</p>";}?>
+            <?php if(isset($_SESSION['mensaje_categoria'])){echo "<p>".$_SESSION['mensaje_categoria']."</p>"; unset($_SESSION['mensaje_categoria']);}?>
             <?php echo "<p>".$_SESSION['mensaje_producto']."</p>";?>
-            <?php if(isset($_SESSION['mensaje_proveedor'])){echo "<p>".$_SESSION['mensaje_proveedor']."</p>";}?>
+            <?php if(isset($_SESSION['mensaje_proveedor'])){echo "<p>".$_SESSION['mensaje_proveedor']."</p>"; unset($_SESSION['mensaje_proveedor']);}?>
         </div>
         <?php
+        unset($_SESSION['mensaje_producto']);
     }
     include_once "../Uso_multiple/Conexion.php";    
     $conexion=MiConexion();
@@ -41,6 +42,11 @@
                 <span><?php echo $producto['Precio']?></span>
                 <h3>Cantidad de Existencias:</h3>
                 <span><?php echo $producto['Stock']." ";?></span><span><?php echo $producto['unidad_medida']?></span>
+                <form action="" method="post">
+                    <input type="text" name="id_producto" value="<?php echo $producto['id_producto']?>" style="display: none;">
+                    <input type="text" name="nombre_producto" value="<?php echo $producto['nombre_producto']?>" style="display: none;">
+                    <input type="submit" name="gestionar_lotes" value="Gestionar Lotes del Producto">
+                </form>
             </div>
         </div>
         <?php 
