@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2024 a las 22:41:28
+-- Tiempo de generación: 18-09-2024 a las 23:07:22
 -- Versión del servidor: 10.6.7-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -75,7 +75,9 @@ CREATE TABLE `empleados` (
 INSERT INTO `empleados` (`id_empleado`, `id_rol`, `Nombre`, `Edad`, `Correo`, `Contrasena`, `Telefono`, `Imagen_perfil`) VALUES
 ('0000001', 1, 'Administrador', '', 'administrador@gmail.com', 'admin2024', '', '../Images/WhatsApp Image 2024-08-16 at 6.37.10 PM.jpeg'),
 ('1028485270', 6, 'Thomas David Olaya', '45', 'tomwork@gmail.com', 'thomas24*', '3054608636', '../Images/pensar.jpg'),
-('123456786', 3, 'Karen', '45', 'karenworked@gmail.com', 'karen24', '3054897890', '');
+('1209675946', 2, 'Danna', '34', 'dannaworked@gmail.com', 'danna24', '3456789090', ''),
+('123456786', 3, 'Karen', '45', 'karenworked@gmail.com', 'karen24', '3054897890', ''),
+('344589049', 1, 'Juan Pablo', '56', 'juanworked@gmail.com', 'juan24', '454545453', '');
 
 -- --------------------------------------------------------
 
@@ -146,8 +148,8 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
-('AL000001', 2167, 1),
-('AL000011', 86, 2),
+('AL000001', 1104, 1),
+('AL000011', 919, 2),
 ('AL000012', 15, 3),
 ('AL000013', 70, 4),
 ('AS000002', 50, 5),
@@ -184,7 +186,8 @@ INSERT INTO `inventario` (`id_producto`, `Stock`, `registro`) VALUES
 ('CN000001', 1700, 36),
 ('JG000003', 1700, 37),
 ('JG000004', 500, 38),
-('JG000005', 34000, 39);
+('JG000005', 34000, 39),
+('JG000006', 3400, 40);
 
 -- --------------------------------------------------------
 
@@ -211,7 +214,7 @@ CREATE TABLE `lote` (
 
 INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cantidad_productos`, `id_unidad_de_medida`, `Fecha_Elaboracion`, `Fecha_Expiracion`, `id_proveedor`, `id_ubicacion`) VALUES
 ('L001', 'AL000011', 1, 1, 2, 4, '2024-08-01', '2025-08-01', 1, 22),
-('L002', 'AL000011', 1, 1, 80, 4, '2024-08-05', '2025-08-05', 1, 1),
+('L002', 'AL000011', 1, 1, 80, 4, '2024-08-05', '2025-08-05', 3, 1),
 ('L003', 'AL000012', 1, 1, 15, 2, '2024-08-10', '2025-08-10', 2, 2),
 ('L004', 'AL000013', 1, 1, 70, 1, '2024-08-15', '2025-08-15', 1, 1),
 ('L005', 'AS000002', 1, 2, 50, 2, '2024-08-20', '2025-08-20', 2, 2),
@@ -250,11 +253,12 @@ INSERT INTO `lote` (`id_lote`, `id_producto`, `id_estado`, `id_categoria`, `cant
 ('L041', 'SA000026', 1, 5, 3700, 3, '', '', 5, 15),
 ('L042', 'SA000027', 1, 5, 35000, 3, '', '', 5, 16),
 ('L043', 'SA000028', 1, 5, 35000, 3, '', '', 5, 17),
-('L048', 'AL000001', 1, 1, 833, 4, '2024-09-05', '2025-05-23', 3, 24),
+('L048', 'AL000011', 1, 1, 833, 4, '2024-09-05', '2025-05-23', 3, 24),
 ('L049', 'AL000011', 1, 1, 35000, 4, '2024-09-03', '2025-07-19', 1, 39),
 ('L055', 'JG000004', 1, 19, 500, 3, '2024-09-03', '', 17, 20),
-('L056', 'AL000001', 2, 1, 3000, 4, '2024-05-11', '2025-01-31', 3, 23),
-('L078', 'JG000005', 2, 19, 34000, 3, '2024-09-04', '', 18, 21);
+('L056', 'AL000001', 2, 1, 2770, 4, '2024-05-11', '2025-01-31', 3, 23),
+('L078', 'JG000005', 2, 19, 34000, 3, '2024-09-04', '', 18, 21),
+('L090', 'JG000006', 1, 19, 3400, 3, '2024-09-04', '', 7, 18);
 
 -- --------------------------------------------------------
 
@@ -313,6 +317,7 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `precio`, `id_unidad_d
 ('JG000003', 'Trimoto con 1 pasajero', 950000, 3, 19, '../imagenesdeproductos/Juguetes/ Trimoto de juguete.JPG'),
 ('JG000004', 'Carro de juguete con 4 pasajeros', 2350000, 3, 19, '../imagenesdeproductos/Juguetes/ Trimoto de juguete.JPG'),
 ('JG000005', 'Juguete de tractomula', 345000, 3, 19, '../imagenesdeproductos/Juguetes/ WhatsApp Image 2024-08-16 at 6.37.10 PM.jpeg'),
+('JG000006', 'Carro de juguete ENTERPRISE', 345000, 3, 19, ''),
 ('MB000008', 'Silla Ergonomica', 15000, 3, 8, '../imagenesdeproductos/Muebles/Silla Ergonomica de Oficina.jpg'),
 ('PP000006', 'Guantes de Proteccion Nitrilo', 1200, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Guantes de Proteccion Nitrilo.jpg'),
 ('PP000026', 'Mascarilla de Proteccion', 1800, 3, 6, '../imagenesdeproductos/Articulos de proteccion personal/Mascara de Proteccion.jpg'),
@@ -582,7 +587,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `registro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
