@@ -9,7 +9,7 @@ session_start();
     $datos_producto_antiguo = $buscar_datos_producto_antiguo->fetch(PDO::FETCH_ASSOC);
     $nombre_producto_antiguo = $datos_producto_antiguo['nombre_producto'];
     $cantidad = $_POST['Cantidad'];
-    if(isset($_POST['Producto'])){
+    if(!empty($_POST['Producto'])){
         $Producto = $_POST['Producto']; //Obtencion de datos del formulario
         $buscar_datos_producto = $Miconexion->prepare("SELECT * FROM producto WHERE id_producto = :id_producto");
         $buscar_datos_producto->execute(['id_producto' => $Producto]);
