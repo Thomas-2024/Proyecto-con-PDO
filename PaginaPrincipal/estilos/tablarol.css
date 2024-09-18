@@ -1,0 +1,14 @@
+#roles{
+    text-align: center;
+    place-items: center;
+    margin: auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+.la{
+    background-color:  rgba(78, 114, 133, 0.333);
+}
+.le{
+    background-color: #ffffff;
+    
+}

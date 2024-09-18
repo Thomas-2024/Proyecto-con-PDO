@@ -1,4 +1,8 @@
+<link rel="stylesheet" href="estilos/formulariopermisos.css">
+
+
 <form action="Secciones-con-permisos/ModificarPermisos.php" method="post">
+    <div class="formupermisos">
         ¿Que rol deseas modificar? <br>
         <select name="RolAModificar" id="RolAModificar" required>
             <option value="">...</option>
@@ -14,7 +18,8 @@
         <input type="checkbox" name="Permiso_Modif_Permisos" id="Permiso_Modif_Permisos"> <br><br>
         Ver menu admin:
         <input type="checkbox" name="Permiso_Menu_Admin" id="Permiso_Menu_Admin"> <br><br>
-        <input type="submit" value="Modificar rol"> <br>
+        <input id="sub" type="submit" value="Modificar rol"> <br>
+        </div>
 </form>
 <br> <br>
 <?php

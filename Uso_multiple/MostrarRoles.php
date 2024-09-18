@@ -3,7 +3,11 @@
         $lista_roles = "";
         include_once "Conexion.php";
         $Mienlace=MiConexion();
-        $roles = $Mienlace->prepare("SELECT * FROM rol");
+        if(isset($_SESSION['visualizarModificarPermisos'])){
+            $roles = $Mienlace->prepare("SELECT * FROM rol WHERE id_rol != 1");
+        } else {
+            $roles = $Mienlace->prepare("SELECT * FROM rol");
+        }
         $roles->execute();
         $matrizRoles = $roles->fetchAll();
         foreach($matrizRoles as $filaRol){
